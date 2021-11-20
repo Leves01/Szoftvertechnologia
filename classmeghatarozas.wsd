@@ -54,5 +54,5 @@ class Order {
 Users <|- Admin
 Users <|- Worker
 Users <|- Buyer
-asd
+
 @enduml
