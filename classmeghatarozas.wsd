@@ -1,0 +1,54 @@
+@startuml classmeghatarozas
+
+'Classok a programon belül
+
+abstract class Users {
+    -fullName : string
+    -dateOfBirth : string
+    -address : string
+    -password : string
+    getFullName() : string
+    getDateOfBirth() : string
+    getAddress() : string
+    setFullName() : void
+    setDateOfBirth() : void
+    setAddress() : void
+    setPassword() : void
+}
+
+class Admin {
+    +addWorker(string fullNameOfWorker, string dateOfBirth, string password, int typeOfWorker) : void
+    +deleteWorker(string codeOfWorker) : void
+    +listWorkers() : void
+    +checkPassword() : string
+}
+
+class Worker {
+    -codeOfWorker : string
+    -typeOfWorker : int
+    +changePassword(string newPassword) : void
+}
+
+class Buyer {
+    
+}
+
+class Product {
+    -name : string
+    #sector : int
+    #shelf : int
+    #row : int
+}
+
+class Order {
+    -codeOfOrder : string
+}
+
+' class ListOfWorkers {
+'     #listOfWorkers[] : Worker
+'     +listWorkers() : void
+' }
+
+' Kapcsolodasok a classok kozott
+
+@enduml
