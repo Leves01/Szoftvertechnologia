@@ -51,4 +51,8 @@ class Order {
 
 ' Kapcsolodasok a classok kozott
 
+Users <|- Admin
+Users <|- Worker
+Users <|- Buyer
+
 @enduml
