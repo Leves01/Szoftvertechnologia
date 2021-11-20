@@ -7,26 +7,28 @@ abstract class Users {
     -dateOfBirth : string
     -address : string
     -password : string
-    getFullName() : string
-    getDateOfBirth() : string
-    getAddress() : string
-    setFullName() : void
-    setDateOfBirth() : void
-    setAddress() : void
-    setPassword() : void
+    -codeOfUser : string
+    '4 karakterből álló generátor
+    +userCodeGenerator() : string
+    +getFullName() : string
+    +getDateOfBirth() : string
+    +getAddress() : string
+    +setFullName() : void
+    +setDateOfBirth() : void
+    +setAddress() : void
+    +setPassword() : void
 }
 
 class Admin {
     +addWorker(string fullNameOfWorker, string dateOfBirth, string password, int typeOfWorker) : void
     +deleteWorker(string codeOfWorker) : void
     +listWorkers() : void
-    +checkPassword() : string
+    +listBuyers() : void
+    +checkPassword(string codeOfUser) : string
 }
 
 class Worker {
-    -codeOfWorker : string
     -typeOfWorker : int
-    +changePassword(string newPassword) : void
 }
 
 class Buyer {
@@ -35,13 +37,25 @@ class Buyer {
 
 class Product {
     -name : string
-    #sector : int
-    #shelf : int
-    #row : int
+    -sector : int
+    -shelf : int
+    -row : int
+    +getName() : string
+    +getSector() : int
+    +getShelf() : int
+    +getRow() : int 
 }
 
 class Order {
+    'legenerált random kód
     -codeOfOrder : string
+    '8 karakterből álló random kód
+    +codeGenerator() : string
+
+}
+
+class ListOfProducts {
+    +listProducts() : void
 }
 
 ' class ListOfWorkers {
@@ -51,8 +65,13 @@ class Order {
 
 ' Kapcsolodasok a classok kozott
 
-Users <|- Admin
-Users <|- Worker
-Users <|- Buyer
-asd
+Users <|-- Admin
+Users <|-- Worker
+Users <|-- Buyer
+
+Admin -- Worker
+Admin -- Buyer
+
+Product *-- ListOfProducts
+
 @enduml
