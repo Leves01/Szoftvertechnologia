@@ -21,7 +21,7 @@ abstract class Users {
 
 class Admin {
     +addWorker(string fullNameOfWorker, string dateOfBirth, string password, int typeOfWorker) : void
-    +deleteWorker(string codeOfWorker) : void
+    +deleteUser(string codeOfUser) : void
     +listWorkers() : void
     +listBuyers() : void
     +checkPassword(string codeOfUser) : string
@@ -65,11 +65,6 @@ class ListOfProducts {
 
 ' Kapcsolodasok a classok kozott
 
-<<<<<<< HEAD
-Users <|- Admin
-Users <|- Worker
-Users <|- Buyer
-=======
 Users <|-- Admin
 Users <|-- Worker
 Users <|-- Buyer
@@ -78,6 +73,5 @@ Admin -- Worker
 Admin -- Buyer
 
 Product *-- ListOfProducts
->>>>>>> f9bf6e02f7198eb16f320d5b8c073acbacc9761d
 
 @enduml
