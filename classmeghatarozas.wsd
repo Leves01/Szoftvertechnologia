@@ -17,6 +17,7 @@ abstract class Users {
     +setDateOfBirth() : void
     +setAddress() : void
     +setPassword() : void
+
 }
 
 class Admin {
@@ -32,8 +33,11 @@ class Worker {
 }
 
 class Buyer {
-    
-}
+    -OrderCode : Order
+    +getOderCode : string
+
+   
+}  
 
 class Product {
     -name : string
@@ -62,6 +66,16 @@ class ListOfProducts {
 '     #listOfWorkers[] : Worker
 '     +listWorkers() : void
 ' }
+
+class Delivery {
+    - deliveryaddress : string
+    - deliverycode : string
+    +setDeliveryAddress() : void
+    +generateDeliveryCode : string
+    +getDeliveryAddress() : string
+    +getDeliveryCode() : string
+
+}
 
 ' Kapcsolodasok a classok kozott
 
