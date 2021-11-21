@@ -1,5 +1,4 @@
-@startuml classmeghatarozas
-
+@startuml
 'Classok a programon belül
 
 abstract class Users {
@@ -22,7 +21,7 @@ abstract class Users {
 
 class Admin {
     +addWorker(string fullNameOfWorker, string dateOfBirth, string password, int typeOfWorker) : void
-    +deleteUser(string codeOfUser) : void
+    +deleteWorker(string codeOfUser) : void
     +listWorkers() : void
     +listBuyers() : void
     +checkPassword(string codeOfUser) : string
@@ -30,11 +29,18 @@ class Admin {
 
 class Worker {
     -typeOfWorker : int
+    +PlaceofProduct() : void
+    +AddProduct(name,sector,shelf,row,id) : void
+    +DeleteProduct(ProductId) : void
+
 }
 
 class Buyer {
     -OrderCode : Order
     +getOderCode : string
+    +addToBasket() : void
+    +removeFromBasket(ProductId) :void
+    +myBasket() : void 
 
    
 }  
@@ -44,28 +50,38 @@ class Product {
     -sector : int
     -shelf : int
     -row : int
+    -id : int
+    #Product(name,sector,shelf,row,id)
     +getName() : string
     +getSector() : int
     +getShelf() : int
     +getRow() : int 
+    +getId() : int
+
 }
 
 class Order {
     'legenerált random kód
     -codeOfOrder : string
+    -OrderedProductId : string
     '8 karakterből álló random kód
     +codeGenerator() : string
+    +getCode() : string
+
 
 }
 
 class ListOfProducts {
+    -type : string
     +listProducts() : void
+    +listProducts(Type) : void
+
 }
 
-' class ListOfWorkers {
-'     #listOfWorkers[] : Worker
-'     +listWorkers() : void
-' }
+class ListOfWorkers {
+     #listOfWorkers(WorkerId) : Worker
+     +listWorkers() : void
+ }
 
 class Delivery {
     - deliveryaddress : string
@@ -74,18 +90,36 @@ class Delivery {
     +generateDeliveryCode : string
     +getDeliveryAddress() : string
     +getDeliveryCode() : string
+    +listDeliveriesByCode(deliverycode) : string
+    +listDeliveriesByCountry(address) : string
+
 
 }
 
 ' Kapcsolodasok a classok kozott
 
-Users <|-- Admin
+
 Users <|-- Worker
 Users <|-- Buyer
+Worker <|-- Admin
 
-Admin -- Worker
+'Admin -- Worker
 Admin -- Buyer
+Admin -- Product
+Admin -- ListOfProducts
+Admin o-- ListOfWorkers
 
-Product *-- ListOfProducts
+Product o-- ListOfProducts
 
+
+Buyer -- ListOfProducts
+Buyer *-- Order
+Buyer -- Delivery
+
+
+Product-- Order
+
+Worker -- Delivery
+
+Worker -- Product
 @enduml
