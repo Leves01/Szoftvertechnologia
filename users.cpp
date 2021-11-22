@@ -16,9 +16,8 @@ Users::Users() {
 
 // }
 
-//ide jön a kód generáló függvény, bár fogalmam sincs hogyan kell megírni majd megnézzük
-
-
+//a generátor függvényt szerintem célszerűbb lenne egy külön osztályba moveolni,
+//onnan akármilyen osztály meg tudja hívni
 
 string Users::getFullName() {
     return fullName;

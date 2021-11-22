@@ -19,8 +19,8 @@ class Users {
     // Users(string fullName, string dateOfBirth, string address, string password, string codeOfUser);
     
     // '4 karakterből álló generátor
-    // +userCodeGenerator() : string
-    
+    string userCodeGenerator();
+
     string getFullName();
     string getDateOfBirth();
     string getAddress();
