@@ -1,0 +1,11 @@
+Tanár megjegyzései
+
+főosztályból kell indítani mindent
+user és product kapcsolódása
+multiplicitás
+aggregációs kapcsolat a buyer és az order között
+delivery és order kapcsolata
+több termék megrendeléskor, vektor/lista/map // orderList, asszociációs osztály
+ListOfWorker Worker kapcsolat
+gyerekosztály kapcsolat átgondolása
+Delivery elindítása, valamelyik class által (valószínüleg Worker)
