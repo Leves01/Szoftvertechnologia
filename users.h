@@ -1,10 +1,7 @@
 #ifndef __USERS_H__
 #define __USERS_H__
 
-#include <iostream>
-#include <string>
-
-using namespace std;
+#include "includes.h"
 
 class Users {
     private:
@@ -19,7 +16,7 @@ class Users {
     // Users(string fullName, string dateOfBirth, string address, string password, string codeOfUser);
     
     // '4 karakterből álló generátor
-    string userCodeGenerator();
+    //string userCodeGenerator();
 
     string getFullName();
     string getDateOfBirth();
