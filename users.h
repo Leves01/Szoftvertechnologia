@@ -1,3 +1,6 @@
+#ifndef __USERS_H__
+#define __USERS_H__
+
 #include <iostream>
 #include <string>
 
@@ -26,3 +29,5 @@ class Users {
     void setAddress(string newAddress);
     void setPassword(string newPassword);
 };
+
+#endif // __USERS_H__
