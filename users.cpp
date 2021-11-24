@@ -46,3 +46,8 @@ void Users::setAddress(string newAddress) {
 void Users::setPassword(string newPassword) {
     password = newPassword;
 }
+
+void Users::setCodeOfUser(string newCodeOfUser)
+{
+    codeOfUser = newCodeOfUser;
+}

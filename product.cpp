@@ -11,6 +11,11 @@ Product::Product(string name, int sector, int shelf, int row, int id):
     
 }
 
+string Product::getName()
+{
+    return name;
+}
+
 int Product::getSector() 
 {
     return sector;

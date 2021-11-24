@@ -22,6 +22,7 @@ class Users {
     void setDateOfBirth(string newDateOfBirth);
     void setAddress(string newAddress);
     void setPassword(string newPassword);
+    void setCodeOfUser(string newCodeOfUser);
 };
 
 #endif // __USERS_H__
