@@ -16,6 +16,11 @@ User::User() {
 
 // }
 
+string User::getCodeOfUser()
+{
+    return codeOfUser;
+}
+
 string User::getFullName() {
     return fullName;
 }
@@ -26,6 +31,11 @@ string User::getDateOfBirth() {
 
 string User::getAddress() {
     return address;
+}
+
+string User::getPassword()
+{
+    return password;
 }
 
 void User::setFullName(string newFullName) {

@@ -13,10 +13,9 @@ class Database{
 		// Admin jogosultság 2
 		void addUser(string newFullName, string newAddress, string newDateOfBirth, string newPassword, int newType, User currentUser);
 		void deleteUser(string codeToBeDeleted, User currentUser);
-		void listAll();
-		void listWorkers();
-		void listBuyers();
-		string checkPassword(string codeOfUser);
+		void listAll(User currentUser);
+		void listWorkers(User currentUser);
+		void listBuyers(User currentUser);
 		
 		// Admin és dolgozói jogosultság 1, 2
 		void placeOfProduct();
@@ -24,7 +23,7 @@ class Database{
 		void deleteProduct(int productId);
 
 		// Mindenkinek elérhető [nem bejelentkezett], 0, 1, 2
-		void login();
+		void login(string username, string password, User& currentUser);
 		void logout();
 };
 

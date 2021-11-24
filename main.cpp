@@ -1,20 +1,50 @@
 #include "includes.h"
-#include "users.h"
+#include "user.h"
+#include "database.h"
 
 int main()
 {
     
-    //valamilyen user tömböt kéne ide csinálni, hogy eltároja az eddig hozzáadott felhasználókat
-    //nem biztos hogy Users* típusú mert meg kell hívnia azt a sok szart ami benne vagy a workerbe
-    //+ lehet list jobb lenne mert memóriakezelés
-    Users* userArray;
+    //main változók
+
+    int chosenNumber = 0;
+    User currentUser;
 
     //valami login dolog, hogy a worker be tudjon jelentkezni, de a például a rendelés mûködjön anélkül is
 
     cout << "Üdvözöljük a raktár rendszerünkben, kérem válasszon a kilistázott opciók közül." << endl;
-    cout << "Termékek kilistázása" << endl;
-    cout << "Termék rendelése" << endl;
-    cout << "Bejelentkezés" << endl;
-    cout << "Felhasználók kilistázása" << endl;
+    cout << "1. Termékek kilistázása" << endl;
+    cout << "2. Termék rendelése" << endl;
+    cout << "3. Bejelentkezés" << endl;
+    cout << "4. Felhasználók kilistázása" << endl;
+    cout << "5. Felhasználó hozzáadása" << endl;
+
+    cin >> chosenNumber;
+
+    switch (chosenNumber)
+    {
+    case 1: {
+
+    }
+
+    case 2: {
+
+    }
+
+    case 3: {
+
+    }
+
+    case 4: {
+
+    }
+
+    case 5: {
+
+    }
+
+    default:
+        break;
+    }
 
 }
