@@ -5,27 +5,29 @@ Buyer::Buyer()
 
 }
 
-void Buyer::addToBasket(int ProductId)
+string Buyer::getOrderCode() const
 {
-	MyBasket.push_back(&ProductId);
-
-
+	return orderCode;
 }
 
-void Buyer::removeFromBasket(int ProductId)
+void Buyer::addToBasket(int productId)
 {
-	MyBasket.remove(&ProductId);
+	myBasket.push_back(productId);
 }
 
-void Buyer::myBasket()
+void Buyer::removeFromBasket(int productId)
+{
+	myBasket.remove(productId);
+}
+
+void Buyer::listMyBasket()
 { //amúgy passz ezt hogy akarjuk csinálni ezt kellett volna megbeszélni mi legyen product listet hasonlítsuk össze ezzel a listtel és azokat hasonlítsuk össze
 	//vagy a mainben hozzunk létre egy product változót majd és az alapján getteljük  a productid alapján a nevét
 	// vagy simán Id helyet inkább a nevét adjuk meg a fentebb található függvényeknek.
 	//ut. donat ugyse olvassa baszodj meg te csicska geci.
-	cout << A kosara tartalma:
-	for (std::list<int>::iterator it = MyBasket.begin(); it != MyBasket.end(); ++it)
+	cout << "A kosara tartalma : " << endl;
+	for (std::list<int>::iterator it = myBasket.begin(); it != myBasket.end(); ++it)
 	{
-		cout << it << endl;
-
+		cout << (*it) << endl;
 	}
 }

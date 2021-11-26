@@ -18,7 +18,5 @@ class CodeGenerator {
     public:
         string generateCode(int lenght);
 };
-//asd
-
 
 #endif // __CODEGENERATOR_H__

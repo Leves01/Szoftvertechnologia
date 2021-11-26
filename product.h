@@ -12,7 +12,6 @@ class Product {
         int id;
         
     public:
-        //ez miért protected és nem public?
         Product(string name, int sector, int shelf, int row, int id);
         string getName();
         int getSector();
