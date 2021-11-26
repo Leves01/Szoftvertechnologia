@@ -21,7 +21,7 @@ int main()
             std::cout << "2. Kijelentkezes" << std::endl;
             std::cout << "3. Termekek kilistazasa" << std::endl;
             std::cout << "4. Termek rendelese" << std::endl;
-            std::cout << "5. Termek hozzáadasa" << std::endl;
+            std::cout << "5. Termek hozzáadasa";
             break;
         }
 
@@ -33,7 +33,7 @@ int main()
             std::cout << "4. Termek rendelese" << std::endl;
             std::cout << "5. Termek hozzaadasa" << std::endl;
             std::cout << "6. Felhasznalok kilistazasa" << std::endl;
-            std::cout << "7. Felhasznalo hozzaadasa" << std::endl;
+            std::cout << "7. Felhasznalo hozzaadasa";
             break;
         }
 
@@ -41,11 +41,12 @@ int main()
             std::cout << "1. Bejelentkezes" << std::endl;
             std::cout << "2. Kijelentkezes" << std::endl;
             std::cout << "3. Termekek kilistazasa" << std::endl;
-            std::cout << "4. Termek rendelese" << std::endl;
+            std::cout << "4. Termek rendelese";
             break;
     }
 
     std::cin >> chosenNumber;
+    std::cout << "gyorsende" << std::endl;
 
     switch (chosenNumber)
     {
@@ -65,7 +66,7 @@ int main()
     
     //Termékek kilistázása
     case 3: {
-
+        std::cout << "Ende3" << std::endl;
         break;
     }
 
@@ -85,13 +86,13 @@ int main()
             int sector = 0, shelf = 0, row = 0;
 
             //maga a lefutás
-            std::cout << "Adja meg a termek nevet: (szoveg)" << std::endl;
+            std::cout << "Adja meg a termek nevet: (szoveg)";
             std::cin >> name;
-            std::cout << "Adja meg a termek szektorat: (szam)" << std::endl;
+            std::cout << "Adja meg a termek szektorat: (szam)";
             std::cin >> sector;
-            std::cout << "Adja meg a termek polcat: (szam)" << std::endl;
+            std::cout << "Adja meg a termek polcat: (szam)";
             std::cin >> shelf;
-            std::cout << "Adja meg a termek sorat: (szam)" << std::endl;
+            std::cout << "Adja meg a termek sorat: (szam)";
             std::cin >> row;
 
             db.addProduct(name, sector, shelf, row, productId);
@@ -112,14 +113,14 @@ int main()
 
             int id;
 
-            std::cout << "Adja meg a kitorlendo termek kodjat: (szam)" << std::endl;
+            std::cout << "Adja meg a kitorlendo termek kodjat: (szam)";
             std::cin >> id;
 
             db.deleteProduct(id);
 
         }
         else {
-            std::cout << "Nem rendelkezik megfelelo jogokkal" << std::endl;
+            std::cout << "Nem rendelkezik megfelelo jogokkal";
         }
         
         break;
@@ -135,7 +136,7 @@ int main()
             std::cout << "-------------------------------------" << std::endl;
             std::cout << "1. Dolgozok listazasa" << std::endl;
             std::cout << "2. Vasarlok listazasa" << std::endl;
-            std::cout << "3. Osszes listazasa" << std::endl;
+            std::cout << "3. Osszes listazasa";
             std::cin >> toBeListed;
 
             switch (toBeListed)
@@ -163,7 +164,7 @@ int main()
                     std::cout << "Helytelen szamot adott meg" << std::endl;
                     break;
                 }
-                    break;
+                break;
             }
 
         }
@@ -178,6 +179,10 @@ int main()
 
         if (currentUser.checkType() >= 2) {
 
+            /*cout <<
+            cin >>
+
+            db.addUser*/
         }
         else {
         std::cout << "Nem rendelkezik megfelelo jogokkal" << std::endl;
@@ -192,7 +197,7 @@ int main()
             
             std::string codeWantDeleted;
             
-            std::cout << "Kerem adja meg a kitorlendõ kodot" << std::endl;
+            std::cout << "Kerem adja meg a kitorlendõ kodot";
             std::cin >> codeWantDeleted;
 
             db.deleteUser(codeWantDeleted);
@@ -207,6 +212,8 @@ int main()
         std::cout << "Helytelen szamot adott meg" << std::endl;
         break;
     }
+
+    std::cout << "Ende" << std::endl;
 
     return 0;
 }
