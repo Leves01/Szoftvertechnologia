@@ -13,10 +13,10 @@ class CodeGenerator {
                             '1', '2', '3', '4', '5', '6', '7', 
                             '8', '9',                           };
 
-        string code = "";
+        std::string code = "";
 
     public:
-        string generateCode(int lenght);
+        std::string generateCode(int lenght);
 };
 
 #endif // __CODEGENERATOR_H__

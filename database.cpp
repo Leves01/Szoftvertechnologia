@@ -4,21 +4,21 @@ Database::Database()
 {
 }
 
-void Database::addUser(string newFullName, string newAddress, string newDateOfBirth, string newPassword, int newType)
+void Database::addUser(std::string newFullName, std::string newAddress, std::string newDateOfBirth, std::string newPassword, int newType)
 {
 	//legenerálja a kódot
 	CodeGenerator newCode;
-	string userCode = newCode.generateCode(8);
+	std::string userCode = newCode.generateCode(8);
 
 	//iterátor ami végigmegy a userArray listán, megnézi, hogy a generált kód ==-e bármelyik
 	//eddigi legenerált kóddal
 
-	auto it = find(usersArray.begin(), usersArray.end(), &userCode);
+	auto it = std::find(usersArray.begin(), usersArray.end(), userCode);
 
 	while (it != usersArray.end())
 	{
 		userCode = newCode.generateCode(8);
-		it = find(usersArray.begin(), usersArray.end(), &userCode);
+		it = std::find(usersArray.begin(), usersArray.end(), userCode);
 	}
 
 	User newUser;
@@ -32,21 +32,21 @@ void Database::addUser(string newFullName, string newAddress, string newDateOfBi
 	usersArray.push_back(newUser);
 }
 
-void Database::deleteUser(string codeToBeDeleted)
+void Database::deleteUser(std::string codeToBeDeleted)
 {
-	auto it = find(usersArray.begin(), usersArray.end(), &codeToBeDeleted);
+	auto it = std::find(usersArray.begin(), usersArray.end(), codeToBeDeleted);
 
 	if (it != usersArray.end()) 
 	{
 		char yesNo;
-		cout << "Biztos szeretné törölni? (y/n)" << endl;
-		cin >> yesNo;
+		std::cout << "Biztos szeretne torolni? (y/n)" << std::endl;
+		std::cin >> yesNo;
 
 		switch (yesNo)
 		{
 			case 'y':
 			{
-
+				usersArray.erase(it);
 				break;
 			}
 
@@ -57,45 +57,45 @@ void Database::deleteUser(string codeToBeDeleted)
 
 			default:
 			{
-				cout << "Rossz karaktert ütött be!" << endl;
+				std::cout << "Rossz karaktert utott be!" << std::endl;
 				break;
 			}
 		}
 	}
 	else {
-		cout << "Nincs ilyen felhasználói kód a rendszerben" << endl;
+		std::cout << "Nincs ilyen felhasznaloi kod a rendszerben" << std::endl;
 	}
 }
 
-void Database::listAll()
+void Database::listAll() const
 {
-	for_each(usersArray.begin(), usersArray.end(), [](User& user)
-		{
-			cout << user.getCodeOfUser() << user.getFullName() << user.getDateOfBirth() << user.getAddress() << user.checkType() << endl;
-		});
+	for (const auto& user : usersArray)
+	{
+			std::cout << user.getCodeOfUser() << user.getFullName() << user.getDateOfBirth() << user.getAddress() << user.checkType() << std::endl;
+	}
 }
 
-void Database::listWorkers()
+void Database::listWorkers() const
 {
-	for_each(usersArray.begin(), usersArray.end(), [](User& user)
-		{
-			if (user.checkType() >= 1) {
-				cout << user.getCodeOfUser() << user.getFullName() << user.getDateOfBirth() << user.getAddress() << user.checkType() << endl;
-			}	
-		});
+	for (const auto& user : usersArray)
+	{
+		if (user.checkType() >= 1) {
+			std::cout << user.getCodeOfUser() << user.getFullName() << user.getDateOfBirth() << user.getAddress() << user.checkType() << std::endl;
+		}
+	}
 }
 
-void Database::listBuyers()
+void Database::listBuyers() const
 {
-	for_each(usersArray.begin(), usersArray.end(), [](User& user)
-		{
-			if (user.checkType() <= 1) {
-				cout << user.getCodeOfUser() << user.getFullName() << user.getDateOfBirth() << user.getAddress() << user.checkType() << endl;
-			}
-		});
+	for (const auto& user : usersArray)
+	{
+		if (user.checkType() <= 1) {
+			std::cout << user.getCodeOfUser() << user.getFullName() << user.getDateOfBirth() << user.getAddress() << user.checkType() << std::endl;
+		}
+	}
 }
 
-void Database::addProduct(string newName, int newSector, int newShelf, int newRow, int newId)
+void Database::addProduct(std::string newName, int newSector, int newShelf, int newRow, int newId)
 {	
 		Product newProduct = Product(newName, newSector, newShelf, newRow, newId);
 		productArray.push_back(newProduct);
@@ -103,17 +103,17 @@ void Database::addProduct(string newName, int newSector, int newShelf, int newRo
 
 void Database::deleteProduct(int id)
 {
-	auto it = find(productArray.begin(), productArray.end(), &id);
+	auto it = std::find(productArray.begin(), productArray.end(), id);
 
 	if (it != productArray.end()) {
-		productArray.remove((*it));
+		productArray.erase(it);
 	}
 }
 
-//void Database::login(string username, string password, User& currentUser)
+//void Database::login(std::string username, std::string password, User& currentUser)
 //{
 //
-//	auto it = find(usersArray.begin(), usersArray.end(), &username);
+//	auto it = std::find(usersArray.begin(), usersArray.end(), &username);
 //
 //	if (it != usersArray.end()) {
 //		if (it->getPassword() == password) {

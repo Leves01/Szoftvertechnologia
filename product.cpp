@@ -1,6 +1,6 @@
 #include "product.h"
 
-Product::Product(string name, int sector, int shelf, int row, int id):
+Product::Product(std::string name, int sector, int shelf, int row, int id):
     name(name),
     sector(sector),
     shelf(shelf),
@@ -10,7 +10,7 @@ Product::Product(string name, int sector, int shelf, int row, int id):
     
 }
 
-string Product::getName()
+std::string Product::getName()
 {
     return name;
 }
@@ -30,7 +30,23 @@ int Product::getRow()
     return row;
 }
 
-int Product::getId() 
+
+int Product::getId() const
 {
     return id;
+}
+
+bool Product::operator==(const Product& rhs)  
+{
+   return id == rhs.id;
+}
+
+bool Product::operator!=(const Product& rhs) 
+{
+    return !operator==(rhs);
+}
+
+bool Product::operator==(const int rhs)
+{
+    return id == rhs;
 }

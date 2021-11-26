@@ -5,19 +5,24 @@
 
 class Product {
     private:
-        string name;
+        std::string name;
         int sector;
         int shelf;
         int row;
         int id;
         
     public:
-        Product(string name, int sector, int shelf, int row, int id);
-        string getName();
+        Product(std::string name, int sector, int shelf, int row, int id);
+        std::string getName();
         int getSector();
         int getShelf();
         int getRow(); 
-        int getId();
+        int getId() const;
+
+        bool operator==(const Product& rhs);
+        bool operator!=(const Product& rhs);
+
+        bool operator==(const int rhs);
 
 };
 

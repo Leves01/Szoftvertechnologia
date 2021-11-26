@@ -6,13 +6,13 @@
 class ListOfProducts
 {
     private:
-        string type;
-        list<string> products;
+        std::string type;
+        std::list<std::string> products;
 
     public:
-        ListOfProducts(string _type);
+        ListOfProducts(std::string _type);
         void listProducts();
-        void listProducts(string Type);
+        void listProducts(std::string Type);
 
 };
 

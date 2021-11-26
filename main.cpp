@@ -11,41 +11,41 @@ int main()
     User currentUser;
     int productId = 1;
 
-    cout << "Üdvözöljük a raktár rendszerünkben, kérem válasszon a kilistázott opciók közül." << endl;
+    std::cout << "Udvozoljuk a raktar rendszerunkben, kerem valasszon a kilistazott opciok kozul." << std::endl;
 
     switch (currentUser.checkType())
     {
         case 1:
         {
-            cout << "1. Bejelentkezés" << endl;
-            cout << "2. Kijelentkezés" << endl;
-            cout << "3. Termékek kilistázása" << endl;
-            cout << "4. Termék rendelése" << endl;
-            cout << "5. Termék hozzáadása" << endl;
+            std::cout << "1. Bejelentkezes" << std::endl;
+            std::cout << "2. Kijelentkezes" << std::endl;
+            std::cout << "3. Termekek kilistazasa" << std::endl;
+            std::cout << "4. Termek rendelese" << std::endl;
+            std::cout << "5. Termek hozzáadasa" << std::endl;
             break;
         }
 
         case 2:
         {
-            cout << "1. Bejelentkezés" << endl;
-            cout << "2. Kijelentkezés" << endl;
-            cout << "3. Termékek kilistázása" << endl;
-            cout << "4. Termék rendelése" << endl;
-            cout << "5. Termék hozzáadása" << endl;
-            cout << "6. Felhasználók kilistázása" << endl;
-            cout << "7. Felhasználó hozzáadása" << endl;
+            std::cout << "1. Bejelentkezes" << std::endl;
+            std::cout << "2. Kijelentkezes" << std::endl;
+            std::cout << "3. Termekek kilistazasa" << std::endl;
+            std::cout << "4. Termek rendelese" << std::endl;
+            std::cout << "5. Termek hozzaadasa" << std::endl;
+            std::cout << "6. Felhasznalok kilistazasa" << std::endl;
+            std::cout << "7. Felhasznalo hozzaadasa" << std::endl;
             break;
         }
 
         default:
-            cout << "1. Bejelentkezés" << endl;
-            cout << "2. Kijelentkezés" << endl;
-            cout << "3. Termékek kilistázása" << endl;
-            cout << "4. Termék rendelése" << endl;
+            std::cout << "1. Bejelentkezes" << std::endl;
+            std::cout << "2. Kijelentkezes" << std::endl;
+            std::cout << "3. Termekek kilistazasa" << std::endl;
+            std::cout << "4. Termek rendelese" << std::endl;
             break;
     }
 
-    cin >> chosenNumber;
+    std::cin >> chosenNumber;
 
     switch (chosenNumber)
     {
@@ -81,25 +81,25 @@ int main()
         if (currentUser.checkType() >= 1) {
 
             //lokális változók
-            string name;
+            std::string name;
             int sector = 0, shelf = 0, row = 0;
 
             //maga a lefutás
-            cout << "Adja meg a termék nevét: (szöveg)" << endl;
-            cin >> name;
-            cout << "Adja meg a termék szektorát: (szám)" << endl;
-            cin >> sector;
-            cout << "Adja meg a termék polcát: (szám)" << endl;
-            cin >> shelf;
-            cout << "Adja meg a termék sorát: (szám)" << endl;
-            cin >> row;
+            std::cout << "Adja meg a termek nevet: (szoveg)" << std::endl;
+            std::cin >> name;
+            std::cout << "Adja meg a termek szektorat: (szam)" << std::endl;
+            std::cin >> sector;
+            std::cout << "Adja meg a termek polcat: (szam)" << std::endl;
+            std::cin >> shelf;
+            std::cout << "Adja meg a termek sorat: (szam)" << std::endl;
+            std::cin >> row;
 
             db.addProduct(name, sector, shelf, row, productId);
             productId++;
             
         }
         else {
-            cout << "Nem rendelkezik megfelelõ jogokkal" << endl;
+            std::cout << "Nem rendelkezik megfelelo jogokkal" << std::endl;
         }
         
         break;
@@ -112,14 +112,14 @@ int main()
 
             int id;
 
-            cout << "Adja meg a kitörlendõ termék kódját: (szám)" << endl;
-            cin >> id;
+            std::cout << "Adja meg a kitorlendo termek kodjat: (szam)" << std::endl;
+            std::cin >> id;
 
             db.deleteProduct(id);
 
         }
         else {
-            cout << "Nem rendelkezik megfelelõ jogokkal" << endl;
+            std::cout << "Nem rendelkezik megfelelo jogokkal" << std::endl;
         }
         
         break;
@@ -132,11 +132,11 @@ int main()
 
             int toBeListed;
 
-            cout << "-------------------------------------" << endl;
-            cout << "1. Dolgozók listázása" << endl;
-            cout << "2. Vásárlók listázása" << endl;
-            cout << "3. Összes listázása" << endl;
-            cin >> toBeListed;
+            std::cout << "-------------------------------------" << std::endl;
+            std::cout << "1. Dolgozok listazasa" << std::endl;
+            std::cout << "2. Vasarlok listazasa" << std::endl;
+            std::cout << "3. Osszes listazasa" << std::endl;
+            std::cin >> toBeListed;
 
             switch (toBeListed)
             {
@@ -160,7 +160,7 @@ int main()
 
                 default: 
                 {
-                    cout << "Helytelen számot adott meg" << endl;
+                    std::cout << "Helytelen szamot adott meg" << std::endl;
                     break;
                 }
                     break;
@@ -168,7 +168,7 @@ int main()
 
         }
         else {
-            cout << "Nem rendelkezik megfelelõ jogokkal" << endl;
+            std::cout << "Nem rendelkezik megfelelo jogokkal" << std::endl;
         }
         break;
     }
@@ -180,7 +180,7 @@ int main()
 
         }
         else {
-        cout << "Nem rendelkezik megfelelõ jogokkal" << endl;
+        std::cout << "Nem rendelkezik megfelelo jogokkal" << std::endl;
     }
         break;
     }
@@ -190,22 +190,23 @@ int main()
 
         if (currentUser.checkType() >= 2) {
             
-            string codeWantDeleted;
+            std::string codeWantDeleted;
             
-            cout << "Kérem adja meg a kitörlendõ kódot" << endl;
-            cin >> codeWantDeleted;
+            std::cout << "Kerem adja meg a kitorlendõ kodot" << std::endl;
+            std::cin >> codeWantDeleted;
 
             db.deleteUser(codeWantDeleted);
         }
         else {
-            cout << "Nem rendelkezik megfelelõ jogokkal" << endl;
+            std::cout << "Nem rendelkezik megfelelo jogokkal" << std::endl;
         }
         break;
     }
 
     default:
-        cout << "Helytelen számot adott meg" << endl;
+        std::cout << "Helytelen szamot adott meg" << std::endl;
         break;
     }
 
+    return 0;
 }

@@ -1,6 +1,6 @@
 #include "codeGenerator.h"
 
-string CodeGenerator::generateCode(int lenght) 
+std::string CodeGenerator::generateCode(int lenght)
 {
     for(int i = 0; i < lenght; i++) {
         code = code + alphaNums[rand() % 35];
@@ -14,6 +14,6 @@ string CodeGenerator::generateCode(int lenght)
 // {
 //    srand(time(NULL));
 //    int n = 10;
-//    cout << printRandomString(n);
+//    std::cout << printRandomString(n);
 //    return 0;
 // }

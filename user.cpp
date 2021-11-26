@@ -1,12 +1,6 @@
 #include "user.h"
 
-//nem vagyok benne biztos hogy tényleg kell konstruktor
-
-User::User() {
-
-}
-
-// User::User(string fullName, string dateOfBirth, string address, string password, string codeOfUser):
+// User::User(std::string fullName, string dateOfBirth, string address, string password, string codeOfUser):
 //     fullName(fullName),
 //     dateOfBirth(dateOfBirth),
 //     address(address),
@@ -16,45 +10,45 @@ User::User() {
 
 // }
 
-string User::getCodeOfUser()
+std::string User::getCodeOfUser() const
 {
     return codeOfUser;
 }
 
-string User::getFullName() {
+std::string User::getFullName() const {
     return fullName;
 }
 
-string User::getDateOfBirth() {
+std::string User::getDateOfBirth() const {
     return dateOfBirth;
 }
 
-string User::getAddress() {
+std::string User::getAddress() const {
     return address;
 }
 
-string User::getPassword()
+std::string User::getPassword() const
 {
     return password;
 }
 
-void User::setFullName(string newFullName) {
+void User::setFullName(std::string newFullName) {
     fullName = newFullName;
 }
 
-void User::setDateOfBirth(string newDateOfBirth) {
+void User::setDateOfBirth(std::string newDateOfBirth) {
     dateOfBirth = newDateOfBirth;
 }
 
-void User::setAddress(string newAddress) {
+void User::setAddress(std::string newAddress) {
     address = newAddress;
 }
 
-void User::setPassword(string newPassword) {
+void User::setPassword(std::string newPassword) {
     password = newPassword;
 }
 
-void User::setCodeOfUser(string newCodeOfUser)
+void User::setCodeOfUser(std::string newCodeOfUser)
 {
     codeOfUser = newCodeOfUser;
 }
@@ -62,7 +56,7 @@ void User::setCodeOfUser(string newCodeOfUser)
 void User::setType(int typeOf)
 {
     if (typeOf < 0 || typeOf > 2) {
-        throw "A típus 0, 1 vagy 2, 0-Vásárló 1-Dolgozó 2-Admin";
+        throw "A tipus 0, 1 vagy 2, 0-Vasarlo 1-Dolgozo 2-Admin";
     }
     else
     {
@@ -70,7 +64,22 @@ void User::setType(int typeOf)
     }
 }
 
-int User::checkType()
+int User::checkType() const
 {
     return typeOfUser;
+}
+
+bool User::operator==(const User& rhs)
+{
+    return codeOfUser == rhs.codeOfUser;
+}
+
+bool User::operator!=(const User& rhs)
+{
+    return !operator==(rhs);
+}
+
+bool User::operator==(const std::string& rhs)
+{
+    return codeOfUser == rhs;
 }

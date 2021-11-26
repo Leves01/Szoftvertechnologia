@@ -5,7 +5,7 @@ Buyer::Buyer()
 
 }
 
-string Buyer::getOrderCode() const
+std::string Buyer::getOrderCode() const
 {
 	return orderCode;
 }
@@ -25,9 +25,9 @@ void Buyer::listMyBasket()
 	//vagy a mainben hozzunk létre egy product változót majd és az alapján getteljük  a productid alapján a nevét
 	// vagy simán Id helyet inkább a nevét adjuk meg a fentebb található függvényeknek.
 	//ut. donat ugyse olvassa baszodj meg te csicska geci.
-	cout << "A kosara tartalma : " << endl;
+	std::cout << "A kosara tartalma : " << std::endl;
 	for (std::list<int>::iterator it = myBasket.begin(); it != myBasket.end(); ++it)
 	{
-		cout << (*it) << endl;
+		std::cout << (*it) << std::endl;
 	}
 }

@@ -1,7 +1,10 @@
+#ifndef __INCLUDES_H__
+#define __INCLUDES_H__
+
 #include <stdio.h>
 #include <iostream>
 #include <string>
 #include <list>
 #include <algorithm>
 
-using namespace std;
+#endif // __INCLUDES_H__

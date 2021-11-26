@@ -8,12 +8,12 @@
 class Buyer : public User
 {
 private:
-    string orderCode;
-    list<int> myBasket;
+    std::string orderCode;
+    std::list<int> myBasket;
 
 public:
     Buyer();
-    string getOrderCode() const;
+    std::string getOrderCode() const;
     void addToBasket(int ProductId);
     void removeFromBasket(int ProductId);
     void listMyBasket();
