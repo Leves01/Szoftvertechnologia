@@ -1,4 +1,3 @@
-
 #include "product.h"
 
 Product::Product(string name, int sector, int shelf, int row, int id):

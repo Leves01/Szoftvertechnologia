@@ -4,13 +4,16 @@
 
 
 class ListOfProducts
-{private:
-    string type;
-    list<string> products;
-public:
-    ListOfProducts(string _type);
-    void listProducts();
-    void listProducts(string Type);
+{
+    private:
+        string type;
+        list<string> products;
+
+    public:
+        ListOfProducts(string _type);
+        void listProducts();
+        void listProducts(string Type);
+
 };
 
 #endif // LISTOFPRODUCTS_H

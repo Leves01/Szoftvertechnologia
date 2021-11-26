@@ -1,59 +1,49 @@
 #include "database.h"
 
-void Database::addUser(string newFullName, string newAddress, string newDateOfBirth, string newPassword, int newType, User currentUser)
+Database::Database()
 {
-	if (currentUser.checkType() >= 2) {
-
-		//legenerálja a kódot
-		CodeGenerator newCode;
-		string userCode = newCode.generateCode(8);
-
-		//iterátor ami végigmegy a userArray listán, megnézi, hogy a generált kód ==-e bármelyik
-		//eddigi legenerált kóddal
-
-		auto it = find(usersArray.begin(), usersArray.end(), &userCode);
-
-		while (it != usersArray.end())
-		{
-			userCode = newCode.generateCode(8);
-			it = find(usersArray.begin(), usersArray.end(), &userCode);
-		}
-
-		User newUser;
-		newUser.setCodeOfUser(userCode);
-		newUser.setFullName(newFullName);
-		newUser.setAddress(newAddress);
-		newUser.setDateOfBirth(newDateOfBirth);
-		newUser.setPassword(newPassword);
-		newUser.setType(newType);
-
-		usersArray.insert(usersArray.end(), newUser);
-
-	}
-	else {
-		cout << "Nem rendelkezik megfelelő jogokkal" << endl;
-	}
-	
 }
 
-void Database::deleteUser(string codeToBeDeleted, User currentUser)
+void Database::addUser(string newFullName, string newAddress, string newDateOfBirth, string newPassword, int newType)
 {
-	char yesNo;
-	string codeWantDeleted;
-	auto it = find(usersArray.begin(), usersArray.end(), &codeWantDeleted);
+	//legenerálja a kódot
+	CodeGenerator newCode;
+	string userCode = newCode.generateCode(8);
 
-	if (currentUser.checkType() >= 2) {
+	//iterátor ami végigmegy a userArray listán, megnézi, hogy a generált kód ==-e bármelyik
+	//eddigi legenerált kóddal
 
-		cout << "Kérem adja meg a kitörlendő kódot" << endl;
-		cin >> codeWantDeleted;
+	auto it = find(usersArray.begin(), usersArray.end(), &userCode);
 
-		if (it != usersArray.end()) 
+	while (it != usersArray.end())
+	{
+		userCode = newCode.generateCode(8);
+		it = find(usersArray.begin(), usersArray.end(), &userCode);
+	}
+
+	User newUser;
+	newUser.setCodeOfUser(userCode);
+	newUser.setFullName(newFullName);
+	newUser.setAddress(newAddress);
+	newUser.setDateOfBirth(newDateOfBirth);
+	newUser.setPassword(newPassword);
+	newUser.setType(newType);
+
+	usersArray.push_back(newUser);
+}
+
+void Database::deleteUser(string codeToBeDeleted)
+{
+	auto it = find(usersArray.begin(), usersArray.end(), &codeToBeDeleted);
+
+	if (it != usersArray.end()) 
+	{
+		char yesNo;
+		cout << "Biztos szeretné törölni? (y/n)" << endl;
+		cin >> yesNo;
+
+		switch (yesNo)
 		{
-			cout << "Biztos szeretné törölni? (y/n)" << endl;
-			cin >> yesNo;
-
-			switch (yesNo)
-			{
 			case 'y':
 			{
 
@@ -70,73 +60,64 @@ void Database::deleteUser(string codeToBeDeleted, User currentUser)
 				cout << "Rossz karaktert ütött be!" << endl;
 				break;
 			}
-
-			}
-		}
-		else {
-			cout << "Nincs ilyen felhasználói kód a rendszerben" << endl;
 		}
 	}
 	else {
-		cout << "Nem rendelkezik megfelelő jogokkal" << endl;
+		cout << "Nincs ilyen felhasználói kód a rendszerben" << endl;
 	}
 }
 
-void Database::listAll(User currentUser)
+void Database::listAll()
 {
-	if (currentUser.checkType() >= 2) {
+	for_each(usersArray.begin(), usersArray.end(), [](User& user)
+		{
+			cout << user.getCodeOfUser() << user.getFullName() << user.getDateOfBirth() << user.getAddress() << user.checkType() << endl;
+		});
+}
 
-		for_each(usersArray.begin(), usersArray.end(), [](User& user)
-			{
+void Database::listWorkers()
+{
+	for_each(usersArray.begin(), usersArray.end(), [](User& user)
+		{
+			if (user.checkType() >= 1) {
 				cout << user.getCodeOfUser() << user.getFullName() << user.getDateOfBirth() << user.getAddress() << user.checkType() << endl;
-			});
-
-	}
-	else {
-		cout << "Nem rendelkezik megfelelő jogokkal" << endl;
-	}
+			}	
+		});
 }
 
-void Database::listWorkers(User currentUser)
+void Database::listBuyers()
 {
-	if (currentUser.checkType() >= 2) {
-			for_each(usersArray.begin(), usersArray.end(), [](User& user)
-				{
-					if (user.checkType() >= 1) {
-						cout << user.getCodeOfUser() << user.getFullName() << user.getDateOfBirth() << user.getAddress() << user.checkType() << endl;
-					}
-					
-				});
-	}
-	else {
-		cout << "Nem rendelkezik megfelelő jogokkal" << endl;
-	}
+	for_each(usersArray.begin(), usersArray.end(), [](User& user)
+		{
+			if (user.checkType() <= 1) {
+				cout << user.getCodeOfUser() << user.getFullName() << user.getDateOfBirth() << user.getAddress() << user.checkType() << endl;
+			}
+		});
 }
 
-void Database::listBuyers(User currentUser)
+void Database::addProduct(string newName, int newSector, int newShelf, int newRow, int newId)
+{	
+		Product newProduct = Product(newName, newSector, newShelf, newRow, newId);
+		productArray.push_back(newProduct);
+}
+
+void Database::deleteProduct(int id)
 {
-	if (currentUser.checkType() >= 2) {
-		for_each(usersArray.begin(), usersArray.end(), [](User& user)
-			{
-				if (user.checkType() <= 1) {
-					cout << user.getCodeOfUser() << user.getFullName() << user.getDateOfBirth() << user.getAddress() << user.checkType() << endl;
-				}
+	auto it = find(productArray.begin(), productArray.end(), &id);
 
-			});
-	}
-	else {
-		cout << "Nem rendelkezik megfelelő jogokkal" << endl;
+	if (it != productArray.end()) {
+		productArray.remove((*it));
 	}
 }
 
-void Database::login(string username, string password, User& currentUser)
-{
-
-	auto it = find(usersArray.begin(), usersArray.end(), &username);
-
-	if (it != usersArray.end()) {
-		if (it->getPassword() == password) {
-			currentUser = (*it);
-		}
-	}
-}
+//void Database::login(string username, string password, User& currentUser)
+//{
+//
+//	auto it = find(usersArray.begin(), usersArray.end(), &username);
+//
+//	if (it != usersArray.end()) {
+//		if (it->getPassword() == password) {
+//			currentUser = (*it);
+//		}
+//	}
+//}
