@@ -29,6 +29,9 @@ int main()
     Database db;
     int chosenNumber = 0;
     User currentUser;
+
+    //ezt lehet hogy ki kéne rakni egy fájlba, hogy a program újraindításkor ne az 1-es idre
+    //próbáljon mindig terméket berakni
     int productId = 1;
 
     //ezzel amúgy annyi a baj, hogy ha akarunk valamit csinálni a fájllal a mainen belül
@@ -115,7 +118,7 @@ int main()
     
     //Termékek kilistázása
     case 3: {
-        std::cout << "Ende3" << std::endl;
+        
         break;
     }
 
@@ -232,15 +235,15 @@ int main()
             std::string newPassword;
             int newType;
 
-            std::cout << "Adja meg a teljes nevet";
+            std::cout << "Adja meg a teljes nevet: ";
             std::cin >> newFullName;
-            std::cout << "Adja meg a szuletesi evet";
+            std::cout << "Adja meg a szuletesi evet: ";
             std::cin >> newDateOfBirth;
-            std::cout << "Adja meg a lakcimet";
+            std::cout << "Adja meg a lakcimet: ";
             std::cin >> newAddress;
-            std::cout << "Adja meg a jelszot";
+            std::cout << "Adja meg a jelszot: ";
             std::cin >> newPassword;
-            std::cout << "Adja meg a felhasznalo tipusat";
+            std::cout << "Adja meg a felhasznalo tipusat: ";
             std::cin >> newType;
 
             db.addUser(newFullName, newDateOfBirth, newAddress, newPassword, newType);
@@ -260,7 +263,7 @@ int main()
             
             std::string codeWantDeleted;
             
-            std::cout << "Kerem adja meg a kitorlendõ kodot";
+            std::cout << "Kerem adja meg a kitorlendõ kodot: ";
             std::cin >> codeWantDeleted;
 
             db.deleteUser(codeWantDeleted);
