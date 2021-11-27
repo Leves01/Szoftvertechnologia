@@ -4,9 +4,8 @@ Database::Database()
 {
 }
 
-void Database::addUser(std::string newFullName, std::string newAddress, std::string newDateOfBirth, std::string newPassword, int newType)
+void Database::addUser(std::string newFullName, std::string newDateOfBirth, std::string newAddress, std::string newPassword, int newType)
 {
-	//legenerálja a kódot
 	CodeGenerator newCode;
 	std::string userCode = newCode.generateCode(4);
 
@@ -110,14 +109,17 @@ void Database::deleteProduct(int id)
 	}
 }
 
-//void Database::login(std::string username, std::string password, User& currentUser)
-//{
-//
-//	auto it = std::find(usersArray.begin(), usersArray.end(), &username);
-//
-//	if (it != usersArray.end()) {
-//		if (it->getPassword() == password) {
-//			currentUser = (*it);
-//		}
-//	}
-//}
+void Database::login(std::string username, std::string password, User& currentUser)
+{
+
+	auto it = std::find(usersArray.begin(), usersArray.end(), &username);
+
+	if (it != usersArray.end()) {
+		if (it->getPassword() == password) {
+			currentUser = (*it);
+		}
+	}
+
+	//még nincs kész
+
+}

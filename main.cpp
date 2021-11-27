@@ -34,7 +34,8 @@ int main()
     //ezzel amúgy annyi a baj, hogy ha akarunk valamit csinálni a fájllal a mainen belül
     //akkor konkrétan nem tudunk mert bezárja a függvény a fájlt
     //még a függvényen belül
-    fileRead("users.txt");
+
+    //fileRead("users.txt");
 
     //konstruktorral?, fogalmam sincs hogyan kéne ezt megoldani, magában a txt-ben valami ilyesmi lenne:
     //
@@ -45,9 +46,11 @@ int main()
     //vagy lehet nem konstruktor kell hanem írni kell egy ilyen függvényt, ötletem sincs
 
     std::cout << "Udvozoljuk a raktar rendszerunkben, kerem valasszon a kilistazott opciok kozul." << std::endl;
+    
     //txt iras olvasas mukodik de nem hiszem hasznat tudjuk venni a fuggvenyeknek mindenhol xd
     //fileWrite("proba.txt", "Tokeletesen mukodik.\nMasodik sor.\n");
     //fileRead("proba.txt");
+
     switch (currentUser.checkType())
     {
         case 1:
@@ -81,14 +84,25 @@ int main()
     }
 
     std::cin >> chosenNumber;
-    std::cout << "gyorsende" << std::endl;
+
+    //std::cout << "teszt2" << std::endl;
 
     switch (chosenNumber)
     {
 
     //Bejelentkezés
     case 1: {
+        std::string loginUser;
+        std::string loginPassword;
 
+        std::cout << "Adja meg a felhasznalonevet: ";
+        std::cin >> loginUser;
+        std::cout << "Adja meg a jelszavat: ";
+        std::cin >> loginPassword;
+
+        db.login(loginUser, loginPassword, currentUser);
+
+        //cpp még nincs kész
 
         break;
     }
@@ -116,11 +130,9 @@ int main()
 
         if (currentUser.checkType() >= 1) {
 
-            //lokális változók
             std::string name;
             int sector = 0, shelf = 0, row = 0;
 
-            //maga a lefutás
             std::cout << "Adja meg a termek nevet: (szoveg)";
             std::cin >> name;
             std::cout << "Adja meg a termek szektorat: (szam)";
@@ -214,14 +226,30 @@ int main()
 
         if (currentUser.checkType() >= 2) {
 
-            /*cout <<
-            cin >>
+            std::string newFullName;
+            std::string newDateOfBirth;
+            std::string newAddress;
+            std::string newPassword;
+            int newType;
 
-            db.addUser*/
+            std::cout << "Adja meg a teljes nevet";
+            std::cin >> newFullName;
+            std::cout << "Adja meg a szuletesi evet";
+            std::cin >> newDateOfBirth;
+            std::cout << "Adja meg a lakcimet";
+            std::cin >> newAddress;
+            std::cout << "Adja meg a jelszot";
+            std::cin >> newPassword;
+            std::cout << "Adja meg a felhasznalo tipusat";
+            std::cin >> newType;
+
+            db.addUser(newFullName, newDateOfBirth, newAddress, newPassword, newType);
+
         }
         else {
-        std::cout << "Nem rendelkezik megfelelo jogokkal" << std::endl;
-    }
+            std::cout << "Nem rendelkezik megfelelo jogokkal" << std::endl;
+        }
+
         break;
     }
 
@@ -248,7 +276,7 @@ int main()
         break;
     }
 
-    std::cout << "Ende" << std::endl;
+    //std::cout << "teszt3" << std::endl;
 
     return 0;
 }
