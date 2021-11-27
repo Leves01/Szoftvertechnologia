@@ -1,14 +1,14 @@
 #include "user.h"
 
-// User::User(std::string fullName, string dateOfBirth, string address, string password, string codeOfUser):
-//     fullName(fullName),
-//     dateOfBirth(dateOfBirth),
-//     address(address),
-//     password(password),
-//     codeOfUser(codeOfUser)
-// {
-
-// }
+User::User(std::string fullName, std::string dateOfBirth, std::string address, std::string password, std::string codeOfUser, int typeOfUser):
+    fullName(fullName),
+    dateOfBirth(dateOfBirth),
+    address(address),
+    password(password),
+    codeOfUser(codeOfUser),
+    typeOfUser(typeOfUser)
+{
+}
 
 std::string User::getCodeOfUser() const
 {

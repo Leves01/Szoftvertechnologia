@@ -64,5 +64,11 @@
     <Text Include="alapbemenet.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="users.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="products.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

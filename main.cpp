@@ -2,12 +2,14 @@
 #include "user.h"
 #include "database.h"
 #include <fstream>
+
 void fileWrite(const std::string& filename,const std::string& text)
 {
-    std::ofstream File(filename);
-    File << text;
-    File.close();
+    std::ofstream file(filename);
+    file << text;
+    file.close();
 }
+
 void fileRead(const std::string& filename)
 {
     std::string line;
@@ -28,6 +30,19 @@ int main()
     int chosenNumber = 0;
     User currentUser;
     int productId = 1;
+
+    //ezzel amúgy annyi a baj, hogy ha akarunk valamit csinálni a fájllal a mainen belül
+    //akkor konkrétan nem tudunk mert bezárja a függvény a fájlt
+    //még a függvényen belül
+    fileRead("users.txt");
+
+    //konstruktorral?, fogalmam sincs hogyan kéne ezt megoldani, magában a txt-ben valami ilyesmi lenne:
+    //
+    //Hurut Ferenc; 2004.05.14; Budapest Kobanyai utca 4; asd123; ab12; 2;
+    //Jozsi Jozsi; 1993.11.02; Kolozsvár Tulipan negyed R / 2; szeretemakakaot; 22er; 1;
+    //
+    //; elválasztó, és így konstruktorral be tudja baszni a listába a dolgokat?
+    //vagy lehet nem konstruktor kell hanem írni kell egy ilyen függvényt, ötletem sincs
 
     std::cout << "Udvozoljuk a raktar rendszerunkben, kerem valasszon a kilistazott opciok kozul." << std::endl;
     //txt iras olvasas mukodik de nem hiszem hasznat tudjuk venni a fuggvenyeknek mindenhol xd

@@ -8,7 +8,7 @@ void Database::addUser(std::string newFullName, std::string newAddress, std::str
 {
 	//legenerálja a kódot
 	CodeGenerator newCode;
-	std::string userCode = newCode.generateCode(8);
+	std::string userCode = newCode.generateCode(4);
 
 	//iterátor ami végigmegy a userArray listán, megnézi, hogy a generált kód ==-e bármelyik
 	//eddigi legenerált kóddal
@@ -17,7 +17,7 @@ void Database::addUser(std::string newFullName, std::string newAddress, std::str
 
 	while (it != usersArray.end())
 	{
-		userCode = newCode.generateCode(8);
+		userCode = newCode.generateCode(4);
 		it = std::find(usersArray.begin(), usersArray.end(), userCode);
 	}
 

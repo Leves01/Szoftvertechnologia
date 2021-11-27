@@ -14,7 +14,7 @@ class User {
 
     public:
     User() = default;
-    // User(string fullName, string dateOfBirth, string address, string password, string codeOfUser);
+    User(std::string fullName, std::string dateOfBirth, std::string address, std::string password, std::string codeOfUser, int typeOfUser);
 
     std::string getCodeOfUser() const;
     std::string getFullName() const;
