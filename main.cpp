@@ -1,6 +1,24 @@
 #include "includes.h"
 #include "user.h"
 #include "database.h"
+#include <fstream>
+void fileWrite(const std::string& filename,const std::string& text)
+{
+    std::ofstream File(filename);
+    File << text;
+    File.close();
+}
+void fileRead(const std::string& filename)
+{
+    std::string line;
+    std::ifstream file(filename);
+    if (file.is_open())
+    {
+        while (std::getline(file, line))
+            std::cout << line << '\n';
+    }
+    file.close();
+}
 
 int main()
 {
@@ -12,7 +30,9 @@ int main()
     int productId = 1;
 
     std::cout << "Udvozoljuk a raktar rendszerunkben, kerem valasszon a kilistazott opciok kozul." << std::endl;
-
+    //txt iras olvasas mukodik de nem hiszem hasznat tudjuk venni a fuggvenyeknek mindenhol xd
+    //fileWrite("proba.txt", "Tokeletesen mukodik.\nMasodik sor.\n");
+    //fileRead("proba.txt");
     switch (currentUser.checkType())
     {
         case 1:
