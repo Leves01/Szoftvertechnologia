@@ -1,0 +1,155 @@
+@startuml Class_meghatarozas
+'Classok a programon belül
+
+abstract class Users {
+    -fullName : string
+    -dateOfBirth : string
+    -address : string
+    -password : string
+    -codeOfUser : string
+	#Users()
+    +getFullName() : string
+    +getDateOfBirth() : string
+    +getAddress() : string
+    +setFullName(newFullName) : void
+    +setDateOfBirth(newDateOfBirth) : void
+    +setAddress(newAddress) : void
+    +setPassword(newPassword) : void
+	+setCodeOfUser(newCodeOfUser) : void
+
+}
+
+class Worker {
+    -typeOfWorker : int
+	+checkType() : int
+	+setType(typeOf) : void
+	+addUser(fullNameOfUser,address,dateOfBirth,password,typeOfUser) : void
+    +deleteUser(codeOfUser) : void
+	+listWorkers() : void
+	+listBuyers() : void
+	+checkPassword(codeOfUser) : void
+	+placeofProduct() : void
+    +addProduct(name,sector,shelf,row,id) : void
+    +deleteProduct(ProductId) : void
+	+login() : void
+
+}
+
+class Buyer {
+    -orderCode : string
+	-myBasket : list<int>
+	#Buyer()
+    +getOderCode() : string
+    +addToBasket(ProductId) : void
+    +removeFromBasket(ProductId) :void
+    +listMyBasket() : void
+
+   
+}  
+
+class Product {
+    -name : string
+    -sector : int
+    -shelf : int
+    -row : int
+    -id : int
+    #Product(name,sector,shelf,row,id)
+    +getName() : string
+    +getSector() : int
+    +getShelf() : int
+    +getRow() : int 
+    +getId() : int
+
+}
+
+class Order {
+    'legenerált random kód
+    -codeOfOrder : int
+    -OrderedProductId : string
+	#Order()
+    '8 karakterből álló random kód
+    +codeGenerator() : string
+    +getCode() : int
+
+
+}
+
+class ListOfProducts {
+    -type : string
+	-products : list<string>
+	#ListOfProducts(_type)
+    +listProducts() : void
+    +listProducts(Type) : void
+
+}
+
+class ListOfWorkers {
+     #listOfWorkers(WorkerId) : Worker
+     +listWorkers() : void
+ }
+
+class Delivery {
+    - deliveryaddress : string
+    - deliverycode : string
+    +setDeliveryAddress() : void
+    +generateDeliveryCode : string
+    +getDeliveryAddress() : string
+    +getDeliveryCode() : string
+    +listDeliveriesByCode(deliverycode) : string
+    +listDeliveriesByCountry(address) : string
+
+
+}
+
+class CodeGenerator {
+	-alphaNums : char
+	-code : string
+	+generateCode(lenght) : string
+}
+
+class Database {
+	-usersArray : list<User>
+	-productArray : list<Product>
+	#Database()
+	+addUser(newFullName,newDateOfBirth,newAddress,newPassword,newType) : void
+	+deleteUser(codeToBeDeleted) : void
+	+listAll() : void
+	+listWorkers() : void
+	+listBuyers() : void
+	+placeOfProduct() : void
+	+addProduct(name,sector,shelf,row,newId) : void
+	+deleteProduct(id) : void
+	+login(username,password,currentUser) : void
+	+logout() : void
+}
+
+
+
+' Kapcsolodasok a classok kozott
+
+
+Users <|-- Worker
+Users <|-- Buyer
+Worker <|-- Admin
+
+'Admin -- Worker
+Admin -- Buyer
+Admin -- Product
+Admin -- ListOfProducts
+Admin --o ListOfWorkers
+
+Product o-- ListOfProducts
+
+
+Buyer -- ListOfProducts
+Buyer *-- Order
+Buyer -- Delivery
+
+
+Product -- Order
+
+Worker -- Delivery
+
+Worker -- Product
+@enduml
+
