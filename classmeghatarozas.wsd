@@ -7,40 +7,42 @@ abstract class Users {
     -address : string
     -password : string
     -codeOfUser : string
-    '4 karakterből álló generátor
-    +userCodeGenerator() : string
+	#Users()
     +getFullName() : string
     +getDateOfBirth() : string
     +getAddress() : string
-    +setFullName() : void
-    +setDateOfBirth() : void
-    +setAddress() : void
-    +setPassword() : void
+    +setFullName(newFullName) : void
+    +setDateOfBirth(newDateOfBirth) : void
+    +setAddress(newAddress) : void
+    +setPassword(newPassword) : void
+	+setCodeOfUser(newCodeOfUser) : void
 
-}
-
-class Admin {
-    +addWorker(string fullNameOfWorker, string dateOfBirth, string password, int typeOfWorker) : void
-    +deleteWorker(string codeOfUser) : void
-    +listWorkers() : void
-    +listBuyers() : void
-    +checkPassword(string codeOfUser) : string
 }
 
 class Worker {
     -typeOfWorker : int
-    +PlaceofProduct() : void
-    +AddProduct(name,sector,shelf,row,id) : void
-    +DeleteProduct(ProductId) : void
+	+checkType() : int
+	+setType(typeOf) : void
+	+addUser(fullNameOfUser,address,dateOfBirth,password,typeOfUser) : void
+    +deleteUser(codeOfUser) : void
+	+listWorkers() : void
+	+listBuyers() : void
+	+checkPassword(codeOfUser) : void
+	+placeofProduct() : void
+    +addProduct(name,sector,shelf,row,id) : void
+    +deleteProduct(ProductId) : void
+	+login() : void
 
 }
 
 class Buyer {
-    -OrderCode : Order
-    +getOderCode : string
-    +addToBasket() : void
+    -orderCode : string
+	-myBasket : list<int>
+	#Buyer()
+    +getOderCode() : string
+    +addToBasket(ProductId) : void
     +removeFromBasket(ProductId) :void
-    +myBasket() : void 
+    +listMyBasket() : void
 
    
 }  
@@ -62,17 +64,20 @@ class Product {
 
 class Order {
     'legenerált random kód
-    -codeOfOrder : string
+    -codeOfOrder : int
     -OrderedProductId : string
+	#Order()
     '8 karakterből álló random kód
     +codeGenerator() : string
-    +getCode() : string
+    +getCode() : int
 
 
 }
 
 class ListOfProducts {
     -type : string
+	-products : list<string>
+	#ListOfProducts(_type)
     +listProducts() : void
     +listProducts(Type) : void
 
@@ -95,6 +100,30 @@ class Delivery {
 
 
 }
+
+class CodeGenerator {
+	-alphaNums : char
+	-code : string
+	+generateCode(lenght) : string
+}
+
+class Database {
+	-usersArray : list<User>
+	-productArray : list<Product>
+	#Database()
+	+addUser(newFullName,newDateOfBirth,newAddress,newPassword,newType) : void
+	+deleteUser(codeToBeDeleted) : void
+	+listAll() : void
+	+listWorkers() : void
+	+listBuyers() : void
+	+placeOfProduct() : void
+	+addProduct(name,sector,shelf,row,newId) : void
+	+deleteProduct(id) : void
+	+login(username,password,currentUser) : void
+	+logout() : void
+}
+
+
 
 ' Kapcsolodasok a classok kozott
 
