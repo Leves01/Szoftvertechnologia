@@ -109,17 +109,33 @@ void Database::deleteProduct(int id)
 	}
 }
 
-void Database::login(std::string username, std::string password, User& currentUser)
-{
+//void Database::login(std::string username, std::string password, User& currentUser)
+//{
+//
+//	auto it = std::find(usersArray.begin(), usersArray.end(), &username);
+//
+//	if (it != usersArray.end()) {
+//		if (it->getPassword() == password) {
+//			currentUser = (*it);
+//		}
+//	}
+//
+//	//még nincs kész
+//
+//}
 
-	auto it = std::find(usersArray.begin(), usersArray.end(), &username);
+//bool Database::operator==(const Database& rhs)
+//{
+//	return codeOfUser == rhs.codeOfUser;
+//}
+//
+//bool Database::operator!=(const Database& rhs)
+//{
+//	return !operator==(rhs);
+//}
+//
+//bool Database::operator==(const std::string& rhs)
+//{
+//	return codeOfUser == rhs;
+//}
 
-	if (it != usersArray.end()) {
-		if (it->getPassword() == password) {
-			currentUser = (*it);
-		}
-	}
-
-	//még nincs kész
-
-}
