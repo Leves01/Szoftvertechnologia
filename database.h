@@ -32,10 +32,6 @@ class Database{
 		void login(std::string username, std::string password, User& currentUser);
 
 		//Egyéb
-		bool operator==(const Database& rhs);
-		bool operator!=(const Database& rhs);
-
-		bool operator==(const std::string& rhs);
 };
 
 #endif // !__DATABASE_H__

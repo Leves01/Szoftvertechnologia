@@ -27,9 +27,9 @@ int main()
     
     //main változók
     Database db;
-    char chosenNumber = '0';
-    /*User defaultUser = User("default", "2000.01.01", "defaultstreet", "123", "d3f4", 0);*/
-    User currentUser; //= defaultUser;
+    char chosenChar = '0';
+    User defaultUser = User("default", "2000.01.01", "defaultstreet", "123", "d3f4", 2); //ez majd 0 lesz csak teszteltem
+    User currentUser = defaultUser;
 
     
 
@@ -59,7 +59,7 @@ int main()
 
 
 
-    while (chosenNumber != 'x') {
+    while (chosenChar != 'x') {
 
         switch (currentUser.checkType())
         {
@@ -70,7 +70,8 @@ int main()
             std::cout << "3: Termekek kilistazasa" << std::endl;
             std::cout << "4: Termek rendelese" << std::endl;
             std::cout << "5: Termek hozzáadasa" << std::endl;
-            std::cout << "x Kilepes";
+            std::cout << "6: Termek torlese" << std::endl;
+            std::cout << "x Kilepes \n" << std::endl;
             break;
         }
 
@@ -81,9 +82,11 @@ int main()
             std::cout << "3: Termekek kilistazasa" << std::endl;
             std::cout << "4: Termek rendelese" << std::endl;
             std::cout << "5: Termek hozzaadasa" << std::endl;
-            std::cout << "6: Felhasznalok kilistazasa" << std::endl;
-            std::cout << "7: Felhasznalo hozzaadasa" << std::endl;
-            std::cout << "x: Kilepes";
+            std::cout << "6: Termek torlese" << std::endl;
+            std::cout << "7: Felhasznalok kilistazasa" << std::endl;
+            std::cout << "8: Felhasznalo hozzaadasa" << std::endl;
+            std::cout << "9: Felhasznalo torlese" << std::endl;
+            std::cout << "x: Kilepes \n";
             break;
         }
 
@@ -92,28 +95,26 @@ int main()
             std::cout << "2: Kijelentkezes" << std::endl;
             std::cout << "3: Termekek kilistazasa" << std::endl;
             std::cout << "4: Termek rendelese" << std::endl;
-            std::cout << "x: Kilepes";
+            std::cout << "x: Kilepes \n";
             break;
         }
 
-        std::cin >> chosenNumber;
+        std::cin >> chosenChar;
 
-        switch (chosenNumber)
+        switch (chosenChar)
         {
 
             //Bejelentkezés
             case '1': {
-            /*std::string loginUser;
+            std::string loginUser;
             std::string loginPassword;
 
-            std::cout << "Adja meg a felhasznalonevet: ";
+            std::cout << "Adja meg a felhasznalonevet: \n";
             std::cin >> loginUser;
-            std::cout << "Adja meg a jelszavat: ";
+            std::cout << "Adja meg a jelszavat: \n";
             std::cin >> loginPassword;
 
-            db.login(loginUser, loginPassword, currentUser);*/
-
-            //cpp még nincs kész
+            db.login(loginUser, loginPassword, currentUser);
 
             break;
         }
@@ -121,8 +122,8 @@ int main()
             //Kijelentkezés
             case '2': {
 
-            //currentUser;// = defaultUser;
-            std::cout << "Sikeres kijelentkezes" << std::endl;
+            currentUser = defaultUser;
+            std::cout << "Sikeres kijelentkezes\n" << std::endl;
 
             break;
         }
@@ -147,13 +148,13 @@ int main()
                 std::string name;
                 int sector = 0, shelf = 0, row = 0;
 
-                std::cout << "Adja meg a termek nevet: (szoveg)";
+                std::cout << "Adja meg a termek nevet: (szoveg) \n";
                 std::cin >> name;
-                std::cout << "Adja meg a termek szektorat: (szam)";
+                std::cout << "Adja meg a termek szektorat: (szam) \n";
                 std::cin >> sector;
-                std::cout << "Adja meg a termek polcat: (szam)";
+                std::cout << "Adja meg a termek polcat: (szam) \n";
                 std::cin >> shelf;
-                std::cout << "Adja meg a termek sorat: (szam)";
+                std::cout << "Adja meg a termek sorat: (szam) \n";
                 std::cin >> row;
 
                 db.addProduct(name, sector, shelf, row, productId);
@@ -161,7 +162,7 @@ int main()
 
             }
             else {
-                std::cout << "Nem rendelkezik megfelelo jogokkal" << std::endl;
+                std::cout << "Nem rendelkezik megfelelo jogokkal \n" << std::endl;
             }
 
             break;
@@ -174,14 +175,14 @@ int main()
 
                 int id;
 
-                std::cout << "Adja meg a kitorlendo termek kodjat: (szam)";
+                std::cout << "Adja meg a kitorlendo termek kodjat: (szam) \n";
                 std::cin >> id;
 
                 db.deleteProduct(id);
 
             }
             else {
-                std::cout << "Nem rendelkezik megfelelo jogokkal";
+                std::cout << "Nem rendelkezik megfelelo jogokkal \n";
             }
 
             break;
@@ -197,7 +198,7 @@ int main()
                 std::cout << "-------------------------------------" << std::endl;
                 std::cout << "1. Dolgozok listazasa" << std::endl;
                 std::cout << "2. Vasarlok listazasa" << std::endl;
-                std::cout << "3. Osszes listazasa";
+                std::cout << "3. Osszes listazasa \n";
                 std::cin >> toBeListed;
 
                 switch (toBeListed)
@@ -222,7 +223,7 @@ int main()
 
                 default:
                 {
-                    std::cout << "Helytelen karaktert adott meg" << std::endl;
+                    std::cout << "Helytelen karaktert adott meg \n" << std::endl;
                     break;
                 }
                 break;
@@ -230,13 +231,13 @@ int main()
 
             }
             else {
-                std::cout << "Nem rendelkezik megfelelo jogokkal" << std::endl;
+                std::cout << "Nem rendelkezik megfelelo jogokkal \n" << std::endl;
             }
             break;
         }
 
-              //Felhasználó hozzáadása
-        case '8': {
+            //Felhasználó hozzáadása
+            case '8': {
 
             if (currentUser.checkType() >= 2) {
 
@@ -246,15 +247,15 @@ int main()
                 std::string newPassword;
                 int newType;
 
-                std::cout << "Adja meg a teljes nevet: ";
+                std::cout << "Adja meg a teljes nevet: \n";
                 std::cin >> newFullName;
-                std::cout << "Adja meg a szuletesi evet: ";
+                std::cout << "Adja meg a szuletesi evet: \n";
                 std::cin >> newDateOfBirth;
-                std::cout << "Adja meg a lakcimet: ";
+                std::cout << "Adja meg a lakcimet: \n";
                 std::cin >> newAddress;
-                std::cout << "Adja meg a jelszot: ";
+                std::cout << "Adja meg a jelszot: \n";
                 std::cin >> newPassword;
-                std::cout << "Adja meg a felhasznalo tipusat: ";
+                std::cout << "Adja meg a felhasznalo tipusat: \n";
                 std::cin >> newType;
 
                 db.addUser(newFullName, newDateOfBirth, newAddress, newPassword, newType);
@@ -267,14 +268,14 @@ int main()
             break;
         }
 
-              //Felhasználó törlése
-        case '9': {
+            //Felhasználó törlése
+            case '9': {
 
             if (currentUser.checkType() >= 2) {
 
                 std::string codeWantDeleted;
 
-                std::cout << "Kerem adja meg a kitorlendõ kodot: ";
+                std::cout << "Kerem adja meg a kitorlendõ kodot: \n";
                 std::cin >> codeWantDeleted;
 
                 db.deleteUser(codeWantDeleted);

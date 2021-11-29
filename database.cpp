@@ -70,7 +70,7 @@ void Database::listAll() const
 {
 	for (const auto& user : usersArray)
 	{
-			std::cout << user.getCodeOfUser() << user.getFullName() << user.getDateOfBirth() << user.getAddress() << user.checkType() << std::endl;
+			std::cout << user.getCodeOfUser() << " " << user.getFullName() << " " << user.getDateOfBirth() << " " << user.getAddress() << " " << user.checkType() << std::endl;
 	}
 }
 
@@ -79,7 +79,7 @@ void Database::listWorkers() const
 	for (const auto& user : usersArray)
 	{
 		if (user.checkType() >= 1) {
-			std::cout << user.getCodeOfUser() << user.getFullName() << user.getDateOfBirth() << user.getAddress() << user.checkType() << std::endl;
+			std::cout << user.getCodeOfUser() << " " << user.getFullName() << " " << user.getDateOfBirth() << " " << user.getAddress() << " " << user.checkType() << std::endl;
 		}
 	}
 }
@@ -89,7 +89,7 @@ void Database::listBuyers() const
 	for (const auto& user : usersArray)
 	{
 		if (user.checkType() <= 1) {
-			std::cout << user.getCodeOfUser() << user.getFullName() << user.getDateOfBirth() << user.getAddress() << user.checkType() << std::endl;
+			std::cout << user.getCodeOfUser() << " " << user.getFullName() << " " << user.getDateOfBirth() << " " << user.getAddress() << " " << user.checkType() << std::endl;
 		}
 	}
 }
@@ -109,33 +109,21 @@ void Database::deleteProduct(int id)
 	}
 }
 
-//void Database::login(std::string username, std::string password, User& currentUser)
-//{
-//
-//	auto it = std::find(usersArray.begin(), usersArray.end(), &username);
-//
-//	if (it != usersArray.end()) {
-//		if (it->getPassword() == password) {
-//			currentUser = (*it);
-//		}
-//	}
-//
-//	//még nincs kész
-//
-//}
+void Database::login(std::string username, std::string password, User& currentUser)
+{
 
-//bool Database::operator==(const Database& rhs)
-//{
-//	return codeOfUser == rhs.codeOfUser;
-//}
-//
-//bool Database::operator!=(const Database& rhs)
-//{
-//	return !operator==(rhs);
-//}
-//
-//bool Database::operator==(const std::string& rhs)
-//{
-//	return codeOfUser == rhs;
-//}
+	auto it = std::find(usersArray.begin(), usersArray.end(), username);
 
+	if (it != usersArray.end()) {
+		if (it->getPassword() == password) {
+			currentUser = (*it);
+		}
+		else {
+			std::cout << "Hibas belepesi adatok" << std::endl;
+		}
+	}
+	else {
+		std::cout << "Nincs ilyen felhasznalonev a rendszerben" << std::endl;
+	}
+
+}
