@@ -84,7 +84,7 @@ void Database::listWorkers() const
 	}
 }
 
-inline void Database::listBuyers() const
+void Database::listBuyers() const
 {
 	for (const auto& user : usersArray)
 	{
@@ -128,7 +128,7 @@ void Database::login(std::string username, std::string password, User& currentUs
 
 }
 
-void Database::loadUsers(User& _user)
+void Database::loadUsers( User& _user)
 {
 	Database::usersArray.push_back(_user);
 }
