@@ -3,6 +3,8 @@
 #include "database.h"
 #include <fstream>
 
+
+    
 void fileWrite(const std::string& filename,const std::string& text)
 {
     std::ofstream file(filename);
@@ -21,7 +23,74 @@ void fileRead(const std::string& filename)
     }
     file.close();
 }
+void readUsers(Database &B) //EZZEL A GECIVEL LEHET BETOLTENI A USER.TXT-BOL A FOSOKAT main-ben  a database db-re kell meghívni na csa megyek kocsmazni
+{
+    std::ifstream file;
+    file.open("users.txt");
+    if (!file.is_open()) std::cout << "GECIRE NEMJO XD";
 
+    std::string line, word, vezetek, kereszt, szul, cimxd=".", pw,kode;
+    int clap=0;
+    
+    while(std::getline(file,line))
+    {
+        int tag = 0;
+        while (file >> word && tag != 12)
+        {
+            
+            if (word == ";")
+                tag++;
+            if (tag == 0) {
+                vezetek = word;
+                tag++;
+            }
+            else if (tag == 1)
+            {
+                kereszt = word;
+                tag++;
+            }
+            else if (tag == 3)
+            {
+                szul = word;
+                tag++;
+            }
+            else if(tag == 5)
+            {
+                if (cimxd == ".")
+                    cimxd = word;
+                else
+                {
+                    cimxd+= " " + word;
+
+                }
+            }
+            else if (tag == 7)
+            {
+                pw = word;
+                tag++;
+            }
+            else if (tag == 9)
+            {
+                kode = word;
+                tag++;
+                
+            }
+            else if (tag == 11)
+            {
+                clap = stoi(word);
+                tag++;
+            }
+
+
+
+        }
+        std::string teljesnev = vezetek + " " + kereszt;
+        User A(teljesnev,szul,cimxd,pw,kode,clap);
+        
+        B.loadUsers(A);
+        tag = 0;
+    }
+}
 int main()
 {
     

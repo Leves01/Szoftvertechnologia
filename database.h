@@ -32,6 +32,8 @@ class Database{
 		void login(std::string username, std::string password, User& currentUser);
 
 		//Egyéb
+		void loadUsers( User &_user);
+		
 };
 
 #endif // !__DATABASE_H__
