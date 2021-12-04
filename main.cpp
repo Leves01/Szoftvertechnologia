@@ -2,7 +2,7 @@
 #include "user.h"
 #include "database.h"
 #include <fstream>
-
+#include "listofproducts.h"
 
     
 void fileWrite(const std::string& filename,const std::string& text)
@@ -97,6 +97,61 @@ void readUsers(Database &B) //EZZEL A GECIVEL LEHET BETOLTENI A USER.TXT-BOL A F
         
     //}
 }
+void readProducts(Database &B)
+{
+    std::ifstream file;
+    file.open("products.txt");
+    if (!file.is_open()) std::cout << "GECIRE NEMJO XD";
+   
+    std::string word, nev;
+    int szektor, polc, sor, ID;
+    int tag = 0;
+
+    while (file >> word)
+    {
+        if (tag == 0)
+        {
+            nev = word;
+            tag++;
+        }
+        else if (tag == 1)
+        {
+            szektor = std::stoi(word);
+            tag++;
+        }
+        else if (tag == 2)
+        {
+            polc = std::stoi(word);
+            tag++;
+        }
+        else if (tag == 3)
+        {
+            sor = std::stoi(word);
+            tag++;
+        }
+        else if (tag == 4)
+        {
+            ID = std::stoi(word);
+            tag++;
+        }
+        else if (tag == 5)
+        {
+            B.addProduct(nev,szektor,polc,sor,ID);
+            tag = 0;
+        }
+            
+
+
+    }
+}
+
+//std::string name;0
+//int sector;1
+//int shelf;2
+//int row;3
+//int id;4
+//Cserep 1 2 3 1 ; 
+
 int main()
 {
     
@@ -106,8 +161,14 @@ int main()
     User defaultUser = User("default", "2000.01.01", "defaultstreet", "123", "d3f4", 2); //ez majd 0 lesz csak teszteltem
     User currentUser = defaultUser;
     
-    readUsers(db);
-    db.listAll();
+    //readUsers(db);
+    //db.listAll();
+
+    //readProducts(db);
+    //db.listProducts();
+    //db.listProducts("Tegla");
+
+    
 
     
 
@@ -205,6 +266,7 @@ int main()
 
             //Termékek kilistázása
             case '3': {
+             
 
             break;
         }

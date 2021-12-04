@@ -10,22 +10,24 @@ Product::Product(std::string name, int sector, int shelf, int row, int id):
     
 }
 
-std::string Product::getName()
+std::string Product::getName() const
 {
     return name;
 }
 
-int Product::getSector() 
+int Product::getSector()  const
 {
     return sector;
 }
 
-int Product::getShelf() 
+int Product::getShelf()  const
 {
     return shelf;
 }
 
-int Product::getRow() 
+
+
+int Product::getRow() const
 {
     return row;
 }

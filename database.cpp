@@ -94,6 +94,30 @@ void Database::listBuyers() const
 	}
 }
 
+void Database::listProducts() const
+{
+	for (const auto& product : productArray)
+	{
+		std::cout << product.getName() << std::endl;
+	}
+}
+
+void Database::listProducts(std::string _type) const
+{
+	for (const auto& product : productArray)
+	{
+		if(product.getName() == _type)
+			std::cout << product.getName() << std::endl;
+
+	}
+}
+
+//std::string name;
+//int sector;
+//int shelf;
+//int row;
+//int id;
+
 void Database::addProduct(std::string newName, int newSector, int newShelf, int newRow, int newId)
 {	
 		Product newProduct = Product(newName, newSector, newShelf, newRow, newId);

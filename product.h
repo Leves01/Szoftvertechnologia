@@ -13,10 +13,10 @@ class Product {
         
     public:
         Product(std::string name, int sector, int shelf, int row, int id);
-        std::string getName();
-        int getSector();
-        int getShelf();
-        int getRow(); 
+        std::string getName() const;
+        int getSector() const;
+        int getShelf() const;
+        int getRow() const; 
         int getId() const;
 
         bool operator==(const Product& rhs);

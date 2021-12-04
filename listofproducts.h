@@ -10,6 +10,7 @@ class ListOfProducts
         std::list<std::string> products;
 
     public:
+        ListOfProducts() = default;
         ListOfProducts(std::string _type);
         void listProducts();
         void listProducts(std::string Type);

@@ -22,6 +22,8 @@ class Database{
 		void listAll() const;	 
 		void listWorkers() const;
 		void listBuyers() const;
+		void listProducts() const;
+		void listProducts(std::string _type) const;
 		
 		// Admin és dolgozói jogosultság 1, 2
 		void placeOfProduct();
