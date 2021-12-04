@@ -158,7 +158,7 @@ int main()
     //main változók
     Database db;
     char chosenChar = '0';
-    User defaultUser = User("default", "2000.01.01", "defaultstreet", "123", "d3f4", 2); //ez majd 0 lesz csak teszteltem
+    User defaultUser = User("default", "2000.01.01", "defaultstreet", "123", "d3f4", 0); //ez majd 0 lesz csak teszteltem
     User currentUser = defaultUser;
     
     //readUsers(db);
@@ -253,7 +253,7 @@ int main()
             db.login(loginUser, loginPassword, currentUser);
 
             break;
-        }
+            }
 
             //Kijelentkezés
             case '2': {
@@ -262,20 +262,20 @@ int main()
             std::cout << "Sikeres kijelentkezes\n" << std::endl;
 
             break;
-        }
+            }
 
             //Termékek kilistázása
             case '3': {
              
 
             break;
-        }
+            }
 
             //Termék rendelése
             case '4': {
 
             break;
-        }
+            }
 
             //Termék hozzáadása
             case '5': {
@@ -303,7 +303,7 @@ int main()
             }
 
             break;
-        }
+            }
 
             //Termék törlése
             case '6': {
@@ -323,7 +323,7 @@ int main()
             }
 
             break;
-        }
+            }
 
             //Felhasználók kilistázása
             case '7': {
@@ -371,7 +371,7 @@ int main()
                 std::cout << "Nem rendelkezik megfelelo jogokkal \n" << std::endl;
             }
             break;
-        }
+            }
 
             //Felhasználó hozzáadása
             case '8': {
@@ -403,7 +403,7 @@ int main()
             }
 
             break;
-        }
+            }
 
             //Felhasználó törlése
             case '9': {
@@ -421,7 +421,7 @@ int main()
                 std::cout << "Nem rendelkezik megfelelo jogokkal" << std::endl;
             }
             break;
-        }
+            }
 
         default:
             std::cout << "Helytelen karaktert adott meg" << std::endl;
@@ -433,7 +433,7 @@ int main()
 
     }
 
-    //std::cout << "teszt2" << std::endl;
+    //ide írd a fájlmentést vagy mit akarsz
  
     return 0;
 }
