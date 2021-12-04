@@ -103,7 +103,7 @@ int main()
     //main változók
     Database db;
     char chosenChar = '0';
-    User defaultUser = User("default", "2000.01.01", "defaultstreet", "123", "d3f4", 2); //ez majd 0 lesz csak teszteltem
+    User defaultUser = User("default", "2000.01.01", "defaultstreet", "123", "d3f4", 0); //ez majd 0 lesz csak teszteltem
     User currentUser = defaultUser;
     
     readUsers(db);
