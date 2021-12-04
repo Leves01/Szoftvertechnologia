@@ -19,7 +19,7 @@ class Database{
 		// Admin jogosultság 2
 		void addUser(std::string newFullName, std::string newDateOfBirth, std::string newAddress, std::string newPassword, int newType);
 		void deleteUser(std::string codeToBeDeleted);
-		void listAll() const;
+		void listAll() const;	 
 		void listWorkers() const;
 		void listBuyers() const;
 		

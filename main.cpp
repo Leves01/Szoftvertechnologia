@@ -32,15 +32,16 @@ void readUsers(Database &B) //EZZEL A GECIVEL LEHET BETOLTENI A USER.TXT-BOL A F
     std::string line, word, vezetek, kereszt, szul, cimxd=".", pw,kode;
     int clap=0;
     
-    while(std::getline(file,line))
-    {
+    //while(std::getline(file,line))
+    //{
         int tag = 0;
-        while (file >> word && tag != 12)
-        {
+        while (file >> word)
+        { 
+            
             
             if (word == ";")
                 tag++;
-            if (tag == 0) {
+            else if (tag == 0) {
                 vezetek = word;
                 tag++;
             }
@@ -58,38 +59,43 @@ void readUsers(Database &B) //EZZEL A GECIVEL LEHET BETOLTENI A USER.TXT-BOL A F
             {
                 if (cimxd == ".")
                     cimxd = word;
+                
                 else
                 {
                     cimxd+= " " + word;
+                    
 
                 }
             }
-            else if (tag == 7)
+            else if (tag == 6)
             {
                 pw = word;
                 tag++;
             }
-            else if (tag == 9)
+            else if (tag == 8)
             {
                 kode = word;
                 tag++;
                 
             }
-            else if (tag == 11)
+            else if (tag == 10)
             {
                 clap = stoi(word);
-                tag++;
+                std::string teljesnev = vezetek + " " + kereszt;
+                User A(teljesnev, szul, cimxd, pw, kode, clap);             
+                B.loadUsers(A);
+                cimxd = ".";
+                tag = 0;
+                
             }
 
 
 
+
         }
-        std::string teljesnev = vezetek + " " + kereszt;
-        User A(teljesnev,szul,cimxd,pw,kode,clap);
+
         
-        B.loadUsers(A);
-        tag = 0;
-    }
+    //}
 }
 int main()
 {
@@ -99,6 +105,9 @@ int main()
     char chosenChar = '0';
     User defaultUser = User("default", "2000.01.01", "defaultstreet", "123", "d3f4", 2); //ez majd 0 lesz csak teszteltem
     User currentUser = defaultUser;
+    
+    readUsers(db);
+    db.listAll();
 
     
 
