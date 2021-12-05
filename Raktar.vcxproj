@@ -106,6 +106,7 @@
   <ItemGroup>
     <ClCompile Include="buyer.cpp" />
     <ClCompile Include="codeGenerator.cpp" />
+    <ClCompile Include="delivery.cpp" />
     <ClCompile Include="listofproducts.cpp" />
     <ClCompile Include="product.cpp" />
     <ClCompile Include="main.cpp" />
@@ -115,6 +116,7 @@
   <ItemGroup>
     <ClInclude Include="buyer.h" />
     <ClInclude Include="codeGenerator.h" />
+    <ClInclude Include="delivery.h" />
     <ClInclude Include="includes.h" />
     <ClInclude Include="listofproducts.h" />
     <ClInclude Include="product.h" />

@@ -36,6 +36,9 @@
     <ClCompile Include="listofproducts.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="delivery.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="codeGenerator.h">
@@ -57,6 +60,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="listofproducts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="delivery.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
