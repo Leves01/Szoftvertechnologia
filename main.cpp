@@ -96,8 +96,9 @@ void readUsers(Database &B) //EZZEL A GECIVEL LEHET BETOLTENI A USER.TXT-BOL A F
         }
 
         
-    //}
+    
 }
+//MIVAN HA VALAKINEK 3 NEVE VAN
 void readProducts(Database &B)
 {
     std::ifstream file;
@@ -281,10 +282,11 @@ int main()
             }
 
             //Termék rendelése
+                    //BUGOS GECI
             case '4': {
                 std::string input;
                 Buyer A(currentUser.getCodeOfUser());
-                while (input != "Kuldes")
+               // while (input != "Kuldes")
                 {
                     std::cout << "Adja meg a megrendelni kivant termek nevet,ha vegzett gepelje be: Kuldes\n";
                     std::cin >> input;
@@ -299,8 +301,34 @@ int main()
                     }
                 
                 }
+                std::string megye;
+                std::cout << "Milyen megyebol rendel?\n";
+                std::cin >> megye;
                 std::cout << "~~~Kosara tartalma~~~" << std::endl;
                 A.listMyBasket(); 
+                std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
+                if (currentUser.checkType() < 1)
+                {
+                    std::string fullname, pw,szuldat,cime;
+                    std::cout << "On meg nincs regisztralva,regisztraljon be most.\n";
+                    std::cout << "Teljes neve:\n";
+                    std::cin >> fullname;
+                    std::cout <<"Jelszava:\n";
+                    std::cin >> pw;
+                    std::cout << "Szuletesidatum (ev.ho.nap formatum)\n";
+                    std::cin >> szuldat;
+                    std::cout << "Cim Város,utca,hazszam\n";
+                    std::cin >> cime;
+                    CodeGenerator newCode;
+                    std::string kod = newCode.generateCode(4);                   
+                    User D(fullname, szuldat, cime, pw,kod, 0);
+                    std::cout << "Az On belepesi azonositoja: " << kod << std::endl;
+                }
+                
+                
+
+                
+ 
             break;
             }
 
