@@ -98,6 +98,14 @@ void Database::listProducts() const
 	}
 }
 
+void Database::listProductsInfo() const
+{
+	for (const auto& product : productArray)
+	{
+		std::cout << "Nev: " << product.getName() << "Szektor: " << product.getSector() << "Polc: " << product.getShelf() << "Sor: " << product.getRow() << "Id: " << product.getId() << std::endl;
+	}
+}
+
 void Database::listProducts(std::string _type) const
 {
 	for (const auto& product : productArray)
@@ -113,6 +121,15 @@ void Database::listProducts(std::string _type) const
 //int shelf;
 //int row;
 //int id;
+
+//void Database::placeOfProduct(int id)
+//{
+//	for (const auto& product : productArray) {
+//		if (product.getId() == id) {
+//			std::cout << product.getName() << " " << product.getRow() << " " << product.getSector() << " " << product.getShelf() << std::endl;
+//		}
+//	}
+//}
 
 void Database::addProduct(std::string newName, int newSector, int newShelf, int newRow, int newId)
 {	
@@ -161,6 +178,11 @@ void Database::saveUsers() const
 		file << user.getFullName() << " ; " << user.getDateOfBirth() << " ; " << user.getAddress() << " ; " << user.getPassword() << " ; " << user.getCodeOfUser()<<" ; " << user.getType() << "\n";
 	}
 
+}
+
+int Database::productArraySize() const
+{
+	return productArray.size();
 }
 
 void Database::saveProducts() const

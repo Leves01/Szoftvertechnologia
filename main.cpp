@@ -171,19 +171,11 @@ int main()
     //db.listProducts();
     //db.listProducts("Tegla");
 
-    
-
-    
-
     //ezt lehet hogy ki kéne rakni egy fájlba, hogy a program újraindításkor ne az 1-es idre
     //próbáljon mindig terméket berakni
-    int productId = 1;
-
-
+    int productId = db.productArraySize();
 
     //fileRead("users.txt");
-
-    
     
     //Hurut Ferenc; 2004.05.14; Budapest Kobanyai utca 4; asd123; ab12; 2;
     //Jozsi Jozsi; 1993.11.02; Kolozsvár Tulipan negyed R / 2; szeretemakakaot; 22er; 1;
@@ -262,7 +254,7 @@ int main()
             case '2': {
 
             currentUser = defaultUser;
-            std::cout << "Sikeres kijelentkezes\n" << std::endl;
+            std::cout << "Sikeres kijelentkezes \n" << std::endl;
 
             break;
             }
@@ -270,7 +262,17 @@ int main()
             //Termékek kilistázása
             case '3': {
 
-                db.listProducts();
+                std::cout << "\n";
+                std::cout << "Lista kezdete:\n";
+                
+                if (currentUser.checkType() > 0) {
+                    db.listProductsInfo();
+                }
+                else {
+                    db.listProducts();
+                }
+
+                std::cout << "Lista vege:\n";
 
             break;
             }
@@ -399,8 +401,14 @@ int main()
                 std::cout << "Adja meg a felhasznalo tipusat: \n";
                 std::cin >> newType;
 
-                db.addUser(newFullName, newDateOfBirth, newAddress, newPassword, newType);
+                while (newType < 0 || newType > 2) {
+                    std::cout << "Egy felhasznalo tipusa csak 0, 1 vagy 2 erteku lehet \n";
+                    std::cin >> newType;
+                }
 
+                db.addUser(newFullName, newDateOfBirth, newAddress, newPassword, newType);
+                
+              
             }
             else {
                 std::cout << "Nem rendelkezik megfelelo jogokkal" << std::endl;

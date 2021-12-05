@@ -70,13 +70,7 @@ void User::setCodeOfUser(std::string newCodeOfUser)
 
 void User::setType(int typeOf)
 {
-    if (typeOf < 0 || typeOf > 2) {
-        throw "A tipus 0, 1 vagy 2, 0-Vasarlo 1-Dolgozo 2-Admin";
-    }
-    else
-    {
         typeOfUser = typeOf;
-    }
 }
 
 int User::checkType() const

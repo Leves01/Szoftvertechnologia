@@ -8,10 +8,14 @@ private:
 	std::string deliveryCode;
 
 public:
+	Delivery() = default;
+	void addDelivery();
 	void setDeliveryAddress(std::string newAddress);
 	std::string generateDeliveryCode();
 	std::string getDeliveryAddress() const;
 	std::string getDeliveryCode() const;
+
+
 };
 
 #endif // !__DELIVERY_H__

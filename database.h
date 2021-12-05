@@ -29,13 +29,14 @@ class Database{
 		
 		
 		// Admin és dolgozói jogosultság 1, 2
-		void placeOfProduct();
+		//void placeOfProduct(int id);
 		void addProduct(std::string name, int sector, int shelf, int row, int newId);
 		void deleteProduct(int id);
 
 		// Mindenkinek elérhető [nem bejelentkezett], 0, 1, 2
 		void login(std::string username, std::string password, User& currentUser);
 		void listProducts() const;
+		void listProductsInfo() const;
 		void listProducts(std::string _type) const;
 		void listDeliveriesByCode(std::string searchCode) const;
 		void listDeliveriesByCountry(std::string searchAddress) const;
@@ -43,6 +44,7 @@ class Database{
 		//Egyéb
 		void loadUsers( User &_user);
 		void saveUsers() const;	
+		int productArraySize() const;
 };
 
 #endif // !__DATABASE_H__

@@ -124,7 +124,6 @@
     <ClInclude Include="database.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="alapbemenet.txt" />
     <Text Include="products.txt" />
     <Text Include="users.txt" />
   </ItemGroup>
