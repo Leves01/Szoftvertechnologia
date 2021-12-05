@@ -20,7 +20,15 @@ void Database::addUser(std::string newFullName, std::string newDateOfBirth, std:
 		it = std::find(usersArray.begin(), usersArray.end(), userCode);
 	}
 
-	User newUser = User(newFullName, newDateOfBirth, newAddress, newPassword, userCode, newType);
+	User newUser;
+	newUser.setCodeOfUser(userCode);
+	newUser.setFullName(newFullName);
+	newUser.setAddress(newAddress);
+	newUser.setDateOfBirth(newDateOfBirth);
+	newUser.setPassword(newPassword);
+	newUser.setType(newType);
+
+	//User newUser = User(newFullName, newDateOfBirth, newAddress, newPassword, userCode, newType);
 
 	usersArray.push_back(newUser);
 }
@@ -102,7 +110,7 @@ void Database::listProductsInfo() const
 {
 	for (const auto& product : productArray)
 	{
-		std::cout << "Nev: " << product.getName() << "Szektor: " << product.getSector() << "Polc: " << product.getShelf() << "Sor: " << product.getRow() << "Id: " << product.getId() << std::endl;
+		std::cout << "Nev: " << product.getName() << " Szektor: " << product.getSector() << " Polc: " << product.getShelf() << " Sor: " << product.getRow() << " Id: " << product.getId() << std::endl;
 	}
 }
 

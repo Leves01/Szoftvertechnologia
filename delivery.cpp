@@ -1,16 +1,12 @@
 #include "delivery.h"
 #include "codeGenerator.h"
 
-Delivery::Delivery()
-{
-}
-
 void Delivery::setDeliveryAddress(std::string newAddress)
 {
 	deliveryAddress = newAddress;
 }
 
-std::string Delivery::generateDeliveryCode()
+void Delivery::generateDeliveryCode()
 {
 	CodeGenerator newCode;
 	std::string newDeliveryCode = newCode.generateCode(8);

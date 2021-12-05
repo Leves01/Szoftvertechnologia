@@ -254,7 +254,7 @@ int main()
             case '2': {
 
             currentUser = defaultUser;
-            std::cout << "Sikeres kijelentkezes \n" << std::endl;
+            std::cout << "~~Sikeres kijelentkezes~~ \n" << std::endl;
 
             break;
             }
@@ -263,7 +263,7 @@ int main()
             case '3': {
 
                 std::cout << "\n";
-                std::cout << "Lista kezdete:\n";
+                std::cout << "~~Lista kezdete~~\n";
                 
                 if (currentUser.checkType() > 0) {
                     db.listProductsInfo();
@@ -272,8 +272,8 @@ int main()
                     db.listProducts();
                 }
 
-                std::cout << "Lista vege:\n";
-
+                std::cout << "~~Lista vege~~\n"; 
+                std::cout << "\n";
             break;
             }
 
@@ -301,11 +301,10 @@ int main()
                 std::cin >> row;
 
                 db.addProduct(name, sector, shelf, row, productId);
-                productId++;
 
             }
             else {
-                std::cout << "Nem rendelkezik megfelelo jogokkal \n" << std::endl;
+                std::cout << "~~Nem rendelkezik megfelelo jogokkal~~ \n" << std::endl;
             }
 
             break;
@@ -325,7 +324,7 @@ int main()
 
             }
             else {
-                std::cout << "Nem rendelkezik megfelelo jogokkal \n";
+                std::cout << "~~Nem rendelkezik megfelelo jogokkal~~ \n";
             }
 
             break;
@@ -338,11 +337,12 @@ int main()
 
                 int toBeListed;
 
-                std::cout << "-------------------------------------" << std::endl;
+                std::cout << "\n";
                 std::cout << "1. Dolgozok listazasa" << std::endl;
                 std::cout << "2. Vasarlok listazasa" << std::endl;
                 std::cout << "3. Osszes listazasa \n";
                 std::cin >> toBeListed;
+                std::cout << "\n";
 
                 switch (toBeListed)
                 {
@@ -366,7 +366,7 @@ int main()
 
                 default:
                 {
-                    std::cout << "Helytelen karaktert adott meg \n" << std::endl;
+                    std::cout << "~~Helytelen karaktert adott meg~~ \n" << std::endl;
                     break;
                 }
                 break;
@@ -374,7 +374,7 @@ int main()
 
             }
             else {
-                std::cout << "Nem rendelkezik megfelelo jogokkal \n" << std::endl;
+                std::cout << "~~Nem rendelkezik megfelelo jogokkal~~ \n" << std::endl;
             }
             break;
             }
@@ -402,7 +402,7 @@ int main()
                 std::cin >> newType;
 
                 while (newType < 0 || newType > 2) {
-                    std::cout << "Egy felhasznalo tipusa csak 0, 1 vagy 2 erteku lehet \n";
+                    std::cout << "~~Egy felhasznalo tipusa csak 0, 1 vagy 2 erteku lehet~~ \n";
                     std::cin >> newType;
                 }
 
@@ -411,7 +411,7 @@ int main()
               
             }
             else {
-                std::cout << "Nem rendelkezik megfelelo jogokkal" << std::endl;
+                std::cout << "~~Nem rendelkezik megfelelo jogokkal~~" << std::endl;
             }
 
             break;
@@ -430,13 +430,13 @@ int main()
                 db.deleteUser(codeWantDeleted);
             }
             else {
-                std::cout << "Nem rendelkezik megfelelo jogokkal" << std::endl;
+                std::cout << "~~Nem rendelkezik megfelelo jogokkal~~" << std::endl;
             }
             break;
             }
 
         default:
-            std::cout << "Helytelen karaktert adott meg" << std::endl;
+            std::cout << "~~Helytelen karaktert adott meg~~" << std::endl;
             break;
         }
 

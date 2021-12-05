@@ -11,7 +11,7 @@ public:
 	Delivery() = default;
 	void addDelivery();
 	void setDeliveryAddress(std::string newAddress);
-	std::string generateDeliveryCode();
+	void generateDeliveryCode();
 	std::string getDeliveryAddress() const;
 	std::string getDeliveryCode() const;
 

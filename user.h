@@ -13,7 +13,7 @@ class User {
         int typeOfUser;
 
     public:
-    //User() = default;
+    User() = default;
     User(std::string fullName, std::string dateOfBirth, std::string address, std::string password, std::string codeOfUser, int typeOfUser);
 
     std::string getCodeOfUser() const;
