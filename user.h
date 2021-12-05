@@ -13,7 +13,7 @@ class User {
         int typeOfUser;
 
     public:
-    User() = default;
+    //User() = default;
     User(std::string fullName, std::string dateOfBirth, std::string address, std::string password, std::string codeOfUser, int typeOfUser);
 
     std::string getCodeOfUser() const;
@@ -21,6 +21,7 @@ class User {
     std::string getDateOfBirth() const;
     std::string getAddress() const;
     std::string getPassword() const;
+    //std::string getRegion() const;
     int getType()const;
 
     void setFullName(std::string newFullName);
@@ -28,6 +29,7 @@ class User {
     void setAddress(std::string newAddress);
     void setPassword(std::string newPassword);
     void setCodeOfUser(std::string newCodeOfUser);
+    //void setRegion(std::string newRegion);
 
     int checkType() const;	//0-vásárló 1-dolgozó 2-admin
     void setType(int typeOf);

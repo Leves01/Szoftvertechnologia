@@ -20,13 +20,7 @@ void Database::addUser(std::string newFullName, std::string newDateOfBirth, std:
 		it = std::find(usersArray.begin(), usersArray.end(), userCode);
 	}
 
-	User newUser;
-	newUser.setCodeOfUser(userCode);
-	newUser.setFullName(newFullName);
-	newUser.setAddress(newAddress);
-	newUser.setDateOfBirth(newDateOfBirth);
-	newUser.setPassword(newPassword);
-	newUser.setType(newType);
+	User newUser = User(newFullName, newDateOfBirth, newAddress, newPassword, userCode, newType);
 
 	usersArray.push_back(newUser);
 }
@@ -168,6 +162,7 @@ void Database::saveUsers() const
 	}
 
 }
+
 void Database::saveProducts() const
 {
 	std::ofstream file("products.txt");

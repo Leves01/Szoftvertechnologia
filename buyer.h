@@ -14,8 +14,8 @@ private:
 public:
     Buyer();
     std::string getOrderCode() const;
-    void addToBasket(int ProductId);
-    void removeFromBasket(int ProductId);
+    void addToBasket(int productId);
+    void removeFromBasket(int productId);
     void listMyBasket();
 
 };

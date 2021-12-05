@@ -83,7 +83,7 @@ void readUsers(Database &B) //EZZEL A GECIVEL LEHET BETOLTENI A USER.TXT-BOL A F
             {
                 clap = stoi(word);
                 std::string teljesnev = vezetek + " " + kereszt;
-                User A(teljesnev, szul, cimxd, pw, kode, clap);             
+                User A(teljesnev, szul, cimxd, pw, kode, clap);
                 B.loadUsers(A);
                 cimxd = ".";
                 tag = 0;
@@ -269,6 +269,7 @@ int main()
 
             //Termékek kilistázása
             case '3': {
+
                 db.listProducts();
 
             break;

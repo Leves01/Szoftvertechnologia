@@ -32,6 +32,11 @@ std::string User::getPassword() const
     return password;
 }
 
+//std::string User::getRegion() const
+//{
+//    return region;
+//}
+
 int User::getType() const
 {
     return typeOfUser;
@@ -57,6 +62,11 @@ void User::setCodeOfUser(std::string newCodeOfUser)
 {
     codeOfUser = newCodeOfUser;
 }
+
+//void User::setRegion(std::string newRegion)
+//{
+//    region = newRegion;
+//}
 
 void User::setType(int typeOf)
 {

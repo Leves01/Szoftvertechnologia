@@ -38,11 +38,7 @@ class Database{
 
 		//Egyéb
 		void loadUsers( User &_user);
-		void saveUsers() const;
-		
-
-		
-		
+		void saveUsers() const;	
 };
 
 #endif // !__DATABASE_H__
