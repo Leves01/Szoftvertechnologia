@@ -164,7 +164,7 @@ void Database::saveUsers() const
 	std::ofstream file("users.txt");
 	for (const auto& user : usersArray)
 	{
-		file << user.getFullName() << " ; " << user.getDateOfBirth() << " ; " << user.getAddress() << " ; " << user.getPassword() << " ; " << user.getCodeOfUser() << user.getType() << "\n";
+		file << user.getFullName() << " ; " << user.getDateOfBirth() << " ; " << user.getAddress() << " ; " << user.getPassword() << " ; " << user.getCodeOfUser()<<" ; " << user.getType() << "\n";
 	}
 
 }
