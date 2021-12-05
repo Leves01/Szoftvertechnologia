@@ -1,38 +1,27 @@
 @startuml Class_meghatarozas
 'Classok a programon belül
 
-abstract class Users {
+abstract class User {
     -fullName : string
     -dateOfBirth : string
     -address : string
     -password : string
     -codeOfUser : string
-	#Users()
+	-typeOfUser : int
+	#User()
+	#User(fullName, dateOfBirth, address, password, codeOfUser, typeOfUser)
+	+getCodeOfUser() : string
     +getFullName() : string
     +getDateOfBirth() : string
     +getAddress() : string
+	+getPassword() : string
     +setFullName(newFullName) : void
     +setDateOfBirth(newDateOfBirth) : void
     +setAddress(newAddress) : void
     +setPassword(newPassword) : void
 	+setCodeOfUser(newCodeOfUser) : void
-
-}
-
-class Worker {
-    -typeOfWorker : int
 	+checkType() : int
 	+setType(typeOf) : void
-	+addUser(fullNameOfUser,address,dateOfBirth,password,typeOfUser) : void
-    +deleteUser(codeOfUser) : void
-	+listWorkers() : void
-	+listBuyers() : void
-	+checkPassword(codeOfUser) : void
-	+placeofProduct() : void
-    +addProduct(name,sector,shelf,row,id) : void
-    +deleteProduct(ProductId) : void
-	+login() : void
-
 }
 
 class Buyer {
@@ -43,8 +32,6 @@ class Buyer {
     +addToBasket(ProductId) : void
     +removeFromBasket(ProductId) :void
     +listMyBasket() : void
-
-   
 }  
 
 class Product {
@@ -59,20 +46,8 @@ class Product {
     +getShelf() : int
     +getRow() : int 
     +getId() : int
-
 }
 
-class Order {
-    'legenerált random kód
-    -codeOfOrder : int
-    -OrderedProductId : string
-	#Order()
-    '8 karakterből álló random kód
-    +codeGenerator() : string
-    +getCode() : int
-
-
-}
 
 class ListOfProducts {
     -type : string
@@ -80,25 +55,17 @@ class ListOfProducts {
 	#ListOfProducts(_type)
     +listProducts() : void
     +listProducts(Type) : void
-
 }
 
-class ListOfWorkers {
-     #listOfWorkers(WorkerId) : Worker
-     +listWorkers() : void
- }
-
 class Delivery {
-    - deliveryaddress : string
-    - deliverycode : string
-    +setDeliveryAddress() : void
+    - deliveryAddress : string
+    - deliveryCode : string
+	#Delivery()
+    +addDelivery() : void
+	+setDeliveryAddress(newAddress) : void
     +generateDeliveryCode : string
     +getDeliveryAddress() : string
     +getDeliveryCode() : string
-    +listDeliveriesByCode(deliverycode) : string
-    +listDeliveriesByCountry(address) : string
-
-
 }
 
 class CodeGenerator {
@@ -122,7 +89,6 @@ class Database {
 	+login(username,password,currentUser) : void
 	+logout() : void
 }
-
 
 
 ' Kapcsolodasok a classok kozott
