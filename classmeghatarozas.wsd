@@ -90,6 +90,15 @@ class Database {
 	+logout() : void
 }
 
+class Main {
+	+readUsers(&B) : void
+	+readProducts(&B) : void
+	-db : Database
+	-chosenChar : char
+	-defaultUser : User
+	-currentUser : User
+}
+
 
 ' Kapcsolodasok a classok kozott
 
