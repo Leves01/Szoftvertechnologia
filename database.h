@@ -6,6 +6,7 @@
 #include "includes.h"
 #include <algorithm>
 #include "product.h"
+#include <fstream>
 
 class Database{
 	private:
@@ -22,8 +23,8 @@ class Database{
 		void listAll() const;	 
 		void listWorkers() const;
 		void listBuyers() const;
-		void listProducts() const;
-		void listProducts(std::string _type) const;
+		void saveProducts() const;
+		
 		
 		// Admin és dolgozói jogosultság 1, 2
 		void placeOfProduct();
@@ -32,9 +33,15 @@ class Database{
 
 		// Mindenkinek elérhető [nem bejelentkezett], 0, 1, 2
 		void login(std::string username, std::string password, User& currentUser);
+		void listProducts() const;
+		void listProducts(std::string _type) const;
 
 		//Egyéb
 		void loadUsers( User &_user);
+		void saveUsers() const;
+		
+
+		
 		
 };
 

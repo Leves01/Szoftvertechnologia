@@ -1,6 +1,6 @@
-Asd1 Jozsi ; 1993.11.01 ; Kolozsvar Tulipan negyed R/1 ; szeretemakakaot ; 21er ; 1
-Asd2 Jozsi ; 1993.11.02 ; Kolozsvar Tulipan negyed R/2 ; szeretemakakaot ; 22er ; 1
-Asd3 Jozsi ; 1993.11.03 ; Kolozsvar Tulipan negyed R/3 ; szeretemakakaot ; 23er ; 1
-Tarkanyi Levi ; 2001.01.13 ; Zirc Fay Andris uca 14 ; csicskavok2001 ; 69xd ; 2
-Boros Doni ; 20002.02.02 ; ZirC Korhaz mellett 3 ; csgoislife ; ak47 ; 1
-Jakab Karcsika ; 2001.01.11 ; Cseteny faluvege xd ; jelszo1 ; 01bt ; 2
+Asd1 Jozsi ; 1993.11.01 ; Kolozsvar Tulipan negyed R/1 ; szeretemakakaot ; 21er1
+Asd2 Jozsi ; 1993.11.02 ; Kolozsvar Tulipan negyed R/2 ; szeretemakakaot ; 22er1
+Asd3 Jozsi ; 1993.11.03 ; Kolozsvar Tulipan negyed R/3 ; szeretemakakaot ; 23er1
+Tarkanyi Levi ; 2001.01.13 ; Zirc Fay Andris uca 14 ; csicskavok2001 ; 69xd2
+Boros Doni ; 20002.02.02 ; ZirC Korhaz mellett 3 ; csgoislife ; ak471
+Jakab Karcsika ; 2001.01.11 ; Cseteny faluvege xd ; jelszo1 ; 01bt2

@@ -94,6 +94,8 @@ void Database::listBuyers() const
 	}
 }
 
+
+
 void Database::listProducts() const
 {
 	for (const auto& product : productArray)
@@ -155,4 +157,22 @@ void Database::login(std::string username, std::string password, User& currentUs
 void Database::loadUsers( User& _user)
 {
 	Database::usersArray.push_back(_user);
+}
+
+void Database::saveUsers() const
+{
+	std::ofstream file("users.txt");
+	for (const auto& user : usersArray)
+	{
+		file << user.getFullName() << " ; " << user.getDateOfBirth() << " ; " << user.getAddress() << " ; " << user.getPassword() << " ; " << user.getCodeOfUser() << user.getType() << "\n";
+	}
+
+}
+void Database::saveProducts() const
+{
+	std::ofstream file("products.txt");
+	for (const auto& product : productArray)
+	{
+		file << product.getName() << " " << product.getSector() << " " << product.getShelf() << " " << product.getRow() << " " << product.getId() << " ;\n";
+	}
 }

@@ -32,6 +32,11 @@ std::string User::getPassword() const
     return password;
 }
 
+int User::getType() const
+{
+    return typeOfUser;
+}
+
 void User::setFullName(std::string newFullName) {
     fullName = newFullName;
 }

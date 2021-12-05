@@ -23,6 +23,7 @@ void fileRead(const std::string& filename)
     }
     file.close();
 }
+//Adatok betoltese a txt-bol:
 void readUsers(Database &B) //EZZEL A GECIVEL LEHET BETOLTENI A USER.TXT-BOL A FOSOKAT main-ben  a database db-re kell meghívni na csa megyek kocsmazni
 {
     std::ifstream file;
@@ -145,6 +146,8 @@ void readProducts(Database &B)
     }
 }
 
+
+
 //std::string name;0
 //int sector;1
 //int shelf;2
@@ -161,10 +164,10 @@ int main()
     User defaultUser = User("default", "2000.01.01", "defaultstreet", "123", "d3f4", 0); //ez majd 0 lesz csak teszteltem
     User currentUser = defaultUser;
     
-    //readUsers(db);
+    readUsers(db);
     //db.listAll();
 
-    //readProducts(db);
+    readProducts(db);
     //db.listProducts();
     //db.listProducts("Tegla");
 
@@ -266,7 +269,7 @@ int main()
 
             //Termékek kilistázása
             case '3': {
-             
+                db.listProducts();
 
             break;
             }
@@ -434,6 +437,7 @@ int main()
     }
 
     //ide írd a fájlmentést vagy mit akarsz
- 
+    db.saveProducts();
+    db.saveUsers();
     return 0;
 }

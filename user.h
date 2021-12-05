@@ -21,6 +21,7 @@ class User {
     std::string getDateOfBirth() const;
     std::string getAddress() const;
     std::string getPassword() const;
+    int getType()const;
 
     void setFullName(std::string newFullName);
     void setDateOfBirth(std::string newDateOfBirth);
