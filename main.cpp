@@ -286,7 +286,7 @@ int main()
             case '4': {
                 std::string input;
                 Buyer A(currentUser.getCodeOfUser());
-               // while (input != "Kuldes")
+                while (input != "Kuldes")
                 {
                     std::cout << "Adja meg a megrendelni kivant termek nevet,ha vegzett gepelje be: Kuldes\n";
                     std::cin >> input;
@@ -317,7 +317,7 @@ int main()
                     std::cin >> pw;
                     std::cout << "Szuletesidatum (ev.ho.nap formatum)\n";
                     std::cin >> szuldat;
-                    std::cout << "Cim Város,utca,hazszam\n";
+                    std::cout << "Cim Varos,utca,hazszam\n";
                     std::cin >> cime;
                     CodeGenerator newCode;
                     std::string kod = newCode.generateCode(4);                   
