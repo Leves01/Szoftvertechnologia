@@ -244,3 +244,22 @@ void Database::listDeliveriesByCountry(std::string searchAddress) const
 		
 	}
 }
+
+std::string Database::searchForProduct(std::string _productName) const
+{
+	int counter = 0;
+	std::string result = " ";
+	while (counter == 0)
+	{
+		for (const auto& product : productArray)
+		{
+			if (product.getName() == _productName)
+			{
+				result = product.getId();
+				counter++;
+			}
+		}
+
+	}
+	return result;
+}

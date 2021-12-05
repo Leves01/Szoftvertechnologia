@@ -3,6 +3,7 @@
 #include "database.h"
 #include <fstream>
 #include "listofproducts.h"
+#include "buyer.h"
     
 void fileWrite(const std::string& filename,const std::string& text)
 {
@@ -152,6 +153,7 @@ void readProducts(Database &B)
 //int sector;1
 //int shelf;2
 //int row;3
+// //KURVA DONAT
 //int id;4
 //Cserep 1 2 3 1 ; 
 
@@ -173,6 +175,7 @@ int main()
 
     //ezt lehet hogy ki kéne rakni egy fájlba, hogy a program újraindításkor ne az 1-es idre
     //próbáljon mindig terméket berakni
+    // //KURVA DONAT
     //int productId = (db.productArraySize() + 1);
 
     //fileRead("users.txt");
@@ -279,7 +282,25 @@ int main()
 
             //Termék rendelése
             case '4': {
+                std::string input;
+                Buyer A(currentUser.getCodeOfUser());
+                while (input != "Kuldes")
+                {
+                    std::cout << "Adja meg a megrendelni kivant termek nevet,ha vegzett gepelje be: Kuldes\n";
+                    std::cin >> input;
 
+                    if (db.searchForProduct(input) != " "){
+                    
+                        A.addToBasket(db.searchForProduct(input));
+                    }
+                    else
+                    {
+                        std::cout << "Nincs ilyen termek!\n";
+                    }
+                
+                }
+                std::cout << "~~~Kosara tartalma~~~" << std::endl;
+                A.listMyBasket(); 
             break;
             }
 
@@ -449,4 +470,4 @@ int main()
     db.saveProducts();
     db.saveUsers();
     return 0;
-}
+}//KURVA DONAT

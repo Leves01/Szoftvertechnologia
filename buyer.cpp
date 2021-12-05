@@ -1,6 +1,6 @@
 #include "buyer.h"
 
-Buyer::Buyer()
+Buyer::Buyer(std::string _userId) : userId(_userId)
 {
 
 }
@@ -10,21 +10,23 @@ std::string Buyer::getOrderCode() const
 	return orderCode;
 }
 
-void Buyer::addToBasket(int productId)
+void Buyer::addToBasket(std::string productId)
 {
 	myBasket.push_back(productId);
 }
 
-void Buyer::removeFromBasket(int productId)
+
+
+void Buyer::removeFromBasket(std::string productId)
 {
 	myBasket.remove(productId);
 }
 
-void Buyer::listMyBasket()
+void Buyer::listMyBasket() const
 { 
-	std::cout << "A kosara tartalma : " << std::endl;
-	for (std::list<int>::iterator it = myBasket.begin(); it != myBasket.end(); ++it)
+	for (const auto& basket : myBasket)
 	{
-		std::cout << (*it) << std::endl;
+		std::cout << basket << " ";
 	}
+	std::cout << std::endl;
 }

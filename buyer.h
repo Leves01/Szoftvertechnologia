@@ -8,15 +8,16 @@
 class Buyer : public User
 {
 private:
+    std::string userId;
     std::string orderCode;
-    std::list<int> myBasket;
+    std::list<std::string> myBasket;
 
 public:
-    Buyer();
+    Buyer(std::string _userId);
     std::string getOrderCode() const;
-    void addToBasket(int productId);
-    void removeFromBasket(int productId);
-    void listMyBasket();
+    void addToBasket(std::string productId);
+    void removeFromBasket(std::string productId);
+    void listMyBasket()const;
 
 };
 
