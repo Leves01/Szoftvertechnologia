@@ -139,13 +139,30 @@ void Database::listProducts(std::string _type) const
 //	}
 //}
 
-void Database::addProduct(std::string newName, int newSector, int newShelf, int newRow, int newId)
+void Database::addProduct(std::string newName, int newSector, int newShelf, int newRow)
 {	
-		Product newProduct = Product(newName, newSector, newShelf, newRow, newId);
-		productArray.push_back(newProduct);
+	CodeGenerator newCode;
+	std::string Id = newCode.generateCode(2);
+
+	auto it = std::find(usersArray.begin(), usersArray.end(), Id);
+
+	while (it != usersArray.end())
+	{
+		Id = newCode.generateCode(2);
+		it = std::find(usersArray.begin(), usersArray.end(), Id);
+	}
+
+	Product newProduct;
+	newProduct.setName(newName);
+	newProduct.setSector(newSector);
+	newProduct.setShelf(newShelf);
+	newProduct.setRow(newRow);
+	newProduct.setId(Id);
+
+	productArray.push_back(newProduct);
 }
 
-void Database::deleteProduct(int id)
+void Database::deleteProduct(std::string id)
 {
 	auto it = std::find(productArray.begin(), productArray.end(), id);
 
@@ -176,6 +193,11 @@ void Database::login(std::string username, std::string password, User& currentUs
 void Database::loadUsers( User& _user)
 {
 	Database::usersArray.push_back(_user);
+}
+
+void Database::loadProduct(Product& _product)
+{
+	Database::productArray.push_back(_product);
 }
 
 void Database::saveUsers() const

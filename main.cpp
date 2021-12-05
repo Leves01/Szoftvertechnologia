@@ -3,7 +3,6 @@
 #include "database.h"
 #include <fstream>
 #include "listofproducts.h"
-
     
 void fileWrite(const std::string& filename,const std::string& text)
 {
@@ -104,8 +103,8 @@ void readProducts(Database &B)
     file.open("products.txt");
     if (!file.is_open()) std::cout << "GECIRE NEMJO XD";
    
-    std::string word, nev;
-    int szektor, polc, sor, ID;
+    std::string word, nev, ID;
+    int szektor, polc, sor;
     int tag = 0;
 
     while (file >> word)
@@ -132,12 +131,13 @@ void readProducts(Database &B)
         }
         else if (tag == 4)
         {
-            ID = std::stoi(word);
+            ID = word;
             tag++;
         }
         else if (tag == 5)
         {
-            B.addProduct(nev,szektor,polc,sor,ID);
+            Product C(nev, szektor, polc, sor, ID);
+            B.loadProduct(C);
             tag = 0;
         }
             
@@ -173,7 +173,7 @@ int main()
 
     //ezt lehet hogy ki kéne rakni egy fájlba, hogy a program újraindításkor ne az 1-es idre
     //próbáljon mindig terméket berakni
-    int productId = db.productArraySize();
+    //int productId = (db.productArraySize() + 1);
 
     //fileRead("users.txt");
     
@@ -300,7 +300,7 @@ int main()
                 std::cout << "Adja meg a termek sorat: (szam) \n";
                 std::cin >> row;
 
-                db.addProduct(name, sector, shelf, row, productId);
+                db.addProduct(name, sector, shelf, row);
 
             }
             else {
@@ -315,7 +315,7 @@ int main()
 
             if (currentUser.checkType() >= 1) {
 
-                int id;
+                std::string id;
 
                 std::cout << "Adja meg a kitorlendo termek kodjat: (szam) \n";
                 std::cin >> id;

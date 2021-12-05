@@ -1,6 +1,7 @@
 Cserep 1 2 3 1 ;
-Tegla 1 2 4 2 ;
 Szamitogep 2 3 6 3 ;
 TRAGYA 0 0 0 4 ;
 Tegla 1 2 5 5 ;
-Szonyeg 2 4 1 1 ;
+Szonyeg 2 4 1 6 ;
+Lo 3 5 2 7 ;
+Krumpli 2 2 3 7 ;

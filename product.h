@@ -9,20 +9,27 @@ class Product {
         int sector;
         int shelf;
         int row;
-        int id;
+        std::string id;
         
     public:
-        Product(std::string name, int sector, int shelf, int row, int id);
+        Product() = default;
+        Product(std::string name, int sector, int shelf, int row, std::string id);
         std::string getName() const;
         int getSector() const;
         int getShelf() const;
         int getRow() const; 
-        int getId() const;
+        std::string getId() const;
+
+        void setName(std::string newName);
+        void setSector(int newSector);
+        void setShelf(int newShelf);
+        void setRow(int newRow);
+        void setId(std::string newId);
 
         bool operator==(const Product& rhs);
         bool operator!=(const Product& rhs);
 
-        bool operator==(const int rhs);
+        bool operator==(const std::string rhs);
 
 };
 
