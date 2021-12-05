@@ -47,6 +47,7 @@ class Database{
 		void saveUsers() const;	
 		int productArraySize() const;
 		std::string searchForProduct(std::string _productName) const;
+		std::string getCodeFromArray(std::string searchName, std::string dateOB);
 };
 
 #endif // !__DATABASE_H__

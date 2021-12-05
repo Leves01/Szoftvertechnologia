@@ -263,3 +263,15 @@ std::string Database::searchForProduct(std::string _productName) const
 	
 	return result;
 }
+
+std::string Database::getCodeFromArray(std::string searchName, std::string dateOB)
+{
+	for (const auto& user : usersArray) {
+		if (user.getFullName() == searchName && user.getDateOfBirth() == dateOB) {
+			return user.getCodeOfUser();
+		}
+	}
+
+	return "Hiba";
+
+}
