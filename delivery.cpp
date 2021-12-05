@@ -1,31 +1,29 @@
-#include "Delivery.h"
+#include "delivery.h"
+#include "codeGenerator.h"
 
 Delivery::Delivery()
 {
 }
 
+void Delivery::setDeliveryAddress(std::string newAddress)
+{
+	deliveryAddress = newAddress;
+}
+
 std::string Delivery::generateDeliveryCode()
 {
-	return std::string();
+	CodeGenerator newCode;
+	std::string newDeliveryCode = newCode.generateCode(8);
+	deliveryCode = newDeliveryCode;
 }
 
-std::string Delivery::getDeliveryAddress()
+std::string Delivery::getDeliveryAddress() const
 {
-	return std::string();
+	return deliveryAddress;
 }
 
-std::string Delivery::getDeliveryCode()
+std::string Delivery::getDeliveryCode() const
 {
-	return std::string();
-}
-
-std::string Delivery::listDeliveriesByCode(std::string deliveryCode)
-{
-	return std::string();
-}
-
-std::string Delivery::listDeliveriesByCountry(std::string deliveryAddress)
-{
-	return std::string();
+	return deliveryCode;
 }
 

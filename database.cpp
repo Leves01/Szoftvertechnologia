@@ -102,9 +102,9 @@ void Database::listProducts(std::string _type) const
 {
 	for (const auto& product : productArray)
 	{
-		if(product.getName() == _type)
+		if (product.getName() == _type) {
 			std::cout << product.getName() << std::endl;
-
+		}
 	}
 }
 
@@ -169,5 +169,26 @@ void Database::saveProducts() const
 	for (const auto& product : productArray)
 	{
 		file << product.getName() << " " << product.getSector() << " " << product.getShelf() << " " << product.getRow() << " " << product.getId() << " ;\n";
+	}
+}
+
+void Database::listDeliveriesByCode(std::string searchCode) const
+{
+	for (const auto& delivery : deliveryArray)
+	{
+		if (delivery.getDeliveryCode() == searchCode) {
+			std::cout << delivery.getDeliveryAddress() << " " << delivery.getDeliveryCode() << std::endl;
+		}
+	}
+}
+
+void Database::listDeliveriesByCountry(std::string searchAddress) const
+{
+	for (const auto& delivery : deliveryArray)
+	{
+		if (delivery.getDeliveryAddress() == searchAddress) {
+			std::cout << delivery.getDeliveryAddress() << " " << delivery.getDeliveryCode() << std::endl;
+		}
+		
 	}
 }

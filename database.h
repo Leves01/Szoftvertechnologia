@@ -7,11 +7,13 @@
 #include <algorithm>
 #include "product.h"
 #include <fstream>
+#include "delivery.h"
 
 class Database{
 	private:
 		std::list<User> usersArray;
 		std::list<Product> productArray;
+		std::list<Delivery> deliveryArray;
 
 	public:
 		//Konstruktor
@@ -35,6 +37,8 @@ class Database{
 		void login(std::string username, std::string password, User& currentUser);
 		void listProducts() const;
 		void listProducts(std::string _type) const;
+		void listDeliveriesByCode(std::string searchCode) const;
+		void listDeliveriesByCountry(std::string searchAddress) const;
 
 		//Egyéb
 		void loadUsers( User &_user);

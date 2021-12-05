@@ -5,16 +5,13 @@
 class Delivery {
 private:
 	std::string deliveryAddress;
-	std::string deliveryCode
+	std::string deliveryCode;
 
 public:
-	void setDeliveryAddress();
+	void setDeliveryAddress(std::string newAddress);
 	std::string generateDeliveryCode();
-	std::string getDeliveryAddress();
-	std::string getDeliveryCode();
-	std::string listDeliveriesByCode(std::string deliveryCode);
-	std::string listDeliveriesByCountry(std::string deliveryAddress);
-
+	std::string getDeliveryAddress() const;
+	std::string getDeliveryCode() const;
 };
 
 #endif // !__DELIVERY_H__
