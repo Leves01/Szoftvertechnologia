@@ -24,11 +24,11 @@ void fileRead(const std::string& filename)
     file.close();
 }
 //Adatok betoltese a txt-bol:
-void readUsers(Database &B) //EZZEL A GECIVEL LEHET BETOLTENI A USER.TXT-BOL A FOSOKAT main-ben  a database db-re kell meghívni na csa megyek kocsmazni
+void readUsers(Database &B) 
 {
     std::ifstream file;
     file.open("users.txt");
-    if (!file.is_open()) std::cout << "GECIRE NEMJO XD";
+    if (!file.is_open()) std::cout << "Users.txt nem toltott be";
 
     std::string line, word, vezetek, kereszt, szul, cimxd=".", pw,kode;
     int clap=0;
@@ -103,7 +103,7 @@ void readProducts(Database &B)
 {
     std::ifstream file;
     file.open("products.txt");
-    if (!file.is_open()) std::cout << "GECIRE NEMJO XD";
+    if (!file.is_open()) std::cout << "Products.tx nem toltott be";
    
     std::string word, nev, ID;
     int szektor, polc, sor;
@@ -154,7 +154,6 @@ void readProducts(Database &B)
 //int sector;1
 //int shelf;2
 //int row;3
-// //KURVA DONAT
 //int id;4
 //Cserep 1 2 3 1 ; 
 
@@ -173,10 +172,11 @@ int main()
     readProducts(db);
     //db.listProducts();
     //db.listProducts("Tegla");
+    //asd
 
     //ezt lehet hogy ki kéne rakni egy fájlba, hogy a program újraindításkor ne az 1-es idre
     //próbáljon mindig terméket berakni
-    // //KURVA DONAT
+    
     //int productId = (db.productArraySize() + 1);
 
     //fileRead("users.txt");
@@ -188,7 +188,7 @@ int main()
 
     std::cout << "Udvozoljuk a raktar rendszerunkben, kerem valasszon a kilistazott opciok kozul:" << std::endl;
     
-    //txt iras olvasas mukodik de nem hiszem hasznat tudjuk venni a fuggvenyeknek mindenhol xd
+    
     //fileWrite("proba.txt", "Tokeletesen mukodik.\nMasodik sor.\n");
     //fileRead("proba.txt");
 
@@ -282,7 +282,7 @@ int main()
             }
 
             //Termék rendelése
-                    //BUGOS GECI
+                    //BUGOS 
             case '4': {
                 std::string input;
                 Buyer A(currentUser.getCodeOfUser());
@@ -498,4 +498,4 @@ int main()
     db.saveProducts();
     db.saveUsers();
     return 0;
-}//KURVA DONAT
+}
