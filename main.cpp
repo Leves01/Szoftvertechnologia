@@ -288,12 +288,15 @@ int main()
                 Buyer A(currentUser.getCodeOfUser());
                 while (input != "Kuldes")
                 {
-                    std::cout << "Adja meg a megrendelni kivant termek nevet,ha vegzett gepelje be: Kuldes\n";
+                    std::cout << "Adja meg a megrendelni kivant termek nevet, ha vegzett gepelje be: Kuldes\n";
                     std::cin >> input;
 
-                    if (db.searchForProduct(input) != " "){
-                    
-                        A.addToBasket(db.searchForProduct(input));
+                    if (input != "Kuldes") {
+                        if (db.searchForProduct(input) != " "){     
+                        
+                            A.addToBasket(db.searchForProduct(input));
+                        
+                        }
                     }
                     else
                     {
@@ -307,27 +310,33 @@ int main()
                 std::cout << "~~~Kosara tartalma~~~" << std::endl;
                 A.listMyBasket(); 
                 std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
-                if (currentUser.checkType() < 1)
+                if (currentUser.getFullName() == "default")
                 {
-                    std::string fullname, pw,szuldat,cime;
+
+                    int defaultType = 0;
+
+                    //linet kéne olvasnia nem csak stringet
+                    std::string fullName, pw, szuldat, cime;
                     std::cout << "On meg nincs regisztralva,regisztraljon be most.\n";
                     std::cout << "Teljes neve:\n";
-                    std::cin >> fullname;
+                    std::cin >> fullName;
                     std::cout <<"Jelszava:\n";
                     std::cin >> pw;
                     std::cout << "Szuletesidatum (ev.ho.nap formatum)\n";
                     std::cin >> szuldat;
-                    std::cout << "Cim Varos,utca,hazszam\n";
+                    std::cout << "Cim varos, utca, hazszam\n";
                     std::cin >> cime;
-                    CodeGenerator newCode;
-                    std::string kod = newCode.generateCode(4);                   
-                    User D(fullname, szuldat, cime, pw,kod, 0);
-                    std::cout << "Az On belepesi azonositoja: " << kod << std::endl;
+                                      
+                    db.addUser(fullName, szuldat, cime, pw, defaultType);
+                    std::string kod = db.getCodeFromArray(fullName, szuldat);
+                    if (kod != "Hiba") {
+                        std::cout << "Az On belepesi azonositoja: " << kod << std::endl;
+                    }
+                    else {
+                        std::cout << " " << std::endl;
+                    }
+                    
                 }
-                
-                
-
-                
  
             break;
             }
