@@ -102,29 +102,17 @@ class Main {
 
 ' Kapcsolodasok a classok kozott
 
+User <|-- Buyer
 
-Users <|-- Worker
-Users <|-- Buyer
-Worker <|-- Admin
-
-'Admin -- Worker
-Admin -- Buyer
-Admin -- Product
-Admin -- ListOfProducts
-Admin --o ListOfWorkers
+Database -- Buyer
+Database -- Product
+Database -- ListOfProducts
 
 Product o-- ListOfProducts
 
 
 Buyer -- ListOfProducts
-Buyer *-- Order
 Buyer -- Delivery
 
-
-Product -- Order
-
-Worker -- Delivery
-
-Worker -- Product
 @enduml
 
