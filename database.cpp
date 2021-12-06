@@ -90,7 +90,7 @@ void Database::listBuyers() const
 {
 	for (const auto& user : usersArray)
 	{
-		if (user.checkType() <= 1) {
+		if (user.checkType() < 1) {
 			std::cout << user.getCodeOfUser() << " " << user.getFullName() << " " << user.getDateOfBirth() << " " << user.getAddress() << " " << user.checkType() << std::endl;
 		}
 	}
