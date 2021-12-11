@@ -30,3 +30,14 @@ void Buyer::listMyBasket() const
 	}
 	std::cout << std::endl;
 }
+
+std::string Buyer::setOrder() 
+{
+	std::string str;
+	for (const auto& basket : myBasket)
+	{
+		
+		str += " " + basket;
+	}
+	return str;
+}

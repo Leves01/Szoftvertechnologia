@@ -4,4 +4,4 @@ Asd3 Jozsi ; 1993.11.03 ; Kolozsvar Tulipan negyed R/3 ; szeretemakakaot ; 23er 
 Tarkanyi Levi ; 2001.01.13 ; Zirc Fay Andris uca 14 ; csicskavok2001 ; 69xd ; 2
 Boros Doni ; 2002.02.02 ; ZirC Korhaz mellett 3 ; csgoislife ; ak47 ; 0
 Jakab Karcsika ; 2001.01.11 ; Cseteny faluvege xd ; jelszo1 ; 01bt ; 2
-Bela ; belas ; baa ; Bela ; gw9f ; 0
+Teszt Akos ; 2001.01.01 ; Tesztuca ; mindegy ; gw9f ; 0

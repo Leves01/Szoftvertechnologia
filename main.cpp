@@ -282,7 +282,7 @@ int main()
             }
 
             //Termék rendelése
-                    //BUGOS 
+             
             case '4': {
                 std::string input;
                 Buyer A(currentUser.getCodeOfUser());
@@ -292,17 +292,16 @@ int main()
                     std::cin >> input;
 
                     if (input != "Kuldes") {
-                        if (db.searchForProduct(input) != " "){     
-                        
-                            A.addToBasket(db.searchForProduct(input));
-                        
+                        if (!db.searchForProduct("input"))
+                        {
+                            A.addToBasket(input);
                         }
-                    }
-                    else
-                    {
-                        std::cout << "Nincs ilyen termek!\n";
-                    }
-                
+                        else
+                        {
+                            std::cout << "Nincs ilyen termek!" << std::endl;
+                        }
+
+                     }
                 }
                 std::string megye;
                 std::cout << "Milyen megyebol rendel?\n";
@@ -310,16 +309,34 @@ int main()
                 std::cout << "~~~Kosara tartalma~~~" << std::endl;
                 A.listMyBasket(); 
                 std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
+                
+                std::string yn;
+                while (yn != "nem")
+                {
+                    std::cout << "Szeretne torolni a kosarabol? igen/nem\n";
+                    std::cin >> yn;
+                    if (yn == "igen")
+                    {
+                        std::string deleteBasket;
+                        std::cout << "Adja meg a termek nevet amit torolni szeretne : \n";
+                        std::cin >> deleteBasket;
+                        A.removeFromBasket("deleteBasket");
+                    }
+                }
+                
+                
                 if (currentUser.getFullName() == "default")
                 {
 
                     int defaultType = 0;
 
                     //linet kéne olvasnia nem csak stringet
-                    std::string fullName, pw, szuldat, cime;
+                    std::string fullName, pw, szuldat, cime, asd;
                     std::cout << "On meg nincs regisztralva,regisztraljon be most.\n";
                     std::cout << "Teljes neve:\n";
-                    std::cin >> fullName;
+                    std::cin >> fullName >> asd;
+                    fullName += " " + asd;
+
                     std::cout <<"Jelszava:\n";
                     std::cin >> pw;
                     std::cout << "Szuletesidatum (ev.ho.nap formatum)\n";
@@ -331,6 +348,8 @@ int main()
                     std::string kod = db.getCodeFromArray(fullName, szuldat);
                     if (kod != "Hiba") {
                         std::cout << "Az On belepesi azonositoja: " << kod << std::endl;
+                        User thisUser = User(fullName, szuldat, cime, pw,kod, 0); //ez majd 0 lesz csak teszteltem
+                        currentUser = thisUser;
                     }
                     else {
                         std::cout << " " << std::endl;

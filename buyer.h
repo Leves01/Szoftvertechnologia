@@ -3,6 +3,9 @@
 #include "user.h"
 #include "includes.h"
 #include "product.h"
+#include "database.h"
+#include "delivery.h"
+ 
 
 
 class Buyer : public User
@@ -18,6 +21,7 @@ public:
     void addToBasket(std::string productId);
     void removeFromBasket(std::string productId);
     void listMyBasket()const;
+    std::string setOrder();
 
 };
 

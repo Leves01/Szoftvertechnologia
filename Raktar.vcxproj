@@ -119,6 +119,7 @@
     <ClInclude Include="delivery.h" />
     <ClInclude Include="includes.h" />
     <ClInclude Include="listofproducts.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="product.h" />
     <ClInclude Include="user.h" />
     <ClInclude Include="database.h" />

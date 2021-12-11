@@ -30,7 +30,7 @@ class Database{
 		
 		// Admin és dolgozói jogosultság 1, 2
 		//void placeOfProduct(int id);
-		void addProduct(std::string newName, int newSector, int newShelf, int newRow);
+		void addProduct(std::string newName, int newSector, int newShelf,  int newRow);
 		void deleteProduct(std::string id);
 
 		// Mindenkinek elérhető [nem bejelentkezett], 0, 1, 2
@@ -46,7 +46,7 @@ class Database{
 		void loadProduct(Product& _product);
 		void saveUsers() const;	
 		int productArraySize() const;
-		std::string searchForProduct(std::string _productName) const;
+		bool searchForProduct(std::string _productName) const;
 		std::string getCodeFromArray(std::string searchName, std::string dateOB);
 };
 

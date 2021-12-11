@@ -245,7 +245,7 @@ void Database::listDeliveriesByCountry(std::string searchAddress) const
 	}
 }
 
-std::string Database::searchForProduct(std::string _productName) const
+bool Database::searchForProduct(std::string _productName) const
 {
 	
 	std::string result = " ";
@@ -255,13 +255,14 @@ std::string Database::searchForProduct(std::string _productName) const
 		{
 			if (product.getName() == _productName)
 			{
-				result = product.getId();
-			
+				return true;
+
 			}
+			
+				
 		}
 
-	
-	return result;
+		return false;
 }
 
 std::string Database::getCodeFromArray(std::string searchName, std::string dateOB)
