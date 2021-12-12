@@ -229,8 +229,9 @@ void Database::listDeliveriesByCode(std::string searchCode) const
 	for (const auto& delivery : deliveryArray)
 	{
 		if (delivery.getDeliveryCode() == searchCode) {
-			std::cout<<" Megrendelesi azonosito:" << delivery.getDeliveryCode() << " Vevo azonositoja: " << delivery.getBuyer() << " Cim: " << delivery.getDeliveryAddress() << " Megye " << delivery.getmegye() << " Rendelt termekek: " << delivery.getOrder() << std::endl;
+			std::cout << " Megrendelesi azonosito: " << delivery.getDeliveryCode() << " Vevo azonositoja: " << delivery.getBuyer() << " Cim: " << delivery.getDeliveryAddress() << " Megye " << delivery.getmegye() << " Rendelt termekek: " << delivery.getOrder() << std::endl;
 		}
+;
 	}
 }
 // //(std::string _deliveryCode, std::string _buyerCode, std::string _deliveryAddress, std::string _megye, std::string _order
@@ -239,8 +240,9 @@ void Database::listDeliveriesByMegye(std::string megye) const
 	for (const auto& delivery : deliveryArray)
 	{
 		if (delivery.getmegye() == megye) {
-			std::cout << " Megrendelesi azonosito:" << delivery.getDeliveryCode() << " Vevo azonositoja: " << delivery.getBuyer() << " Cim: " << delivery.getDeliveryAddress() << " Megye " << delivery.getmegye() << " Rendelt termekek: " << delivery.getOrder() << std::endl;
+			std::cout << " Megrendelesi azonosito: " << delivery.getDeliveryCode() << " Vevo azonositoja: " << delivery.getBuyer() << " Cim: " << delivery.getDeliveryAddress() << " Megye " << delivery.getmegye() << " Rendelt termekek: " << delivery.getOrder() << std::endl;
 		}
+
 		
 	}
 }

@@ -4,7 +4,7 @@
 #include <fstream>
 #include "listofproducts.h"
 #include "buyer.h"
-    
+using namespace std;
 void fileWrite(const std::string& filename,const std::string& text)
 {
     std::ofstream file(filename);
@@ -35,6 +35,7 @@ void readUsers(Database &B)
     
     //while(std::getline(file,line))
     //{
+    //Boros Doni ; 2002.02.02 ; ZirC Korhaz mellett 3 ; csgoislife ; ak47 ; 0
         int tag = 0;
         while (file >> word)
         { 
@@ -281,7 +282,7 @@ int main()
             std::cout << "7: Termek torlese" << std::endl;
             std::cout << "8: Felhasznalok kilistazasa" << std::endl;
             std::cout << "9: Felhasznalo hozzaadasa" << std::endl;
-            std::cout << "10: Felhasznalo torlese" << std::endl;
+            std::cout << "y: Felhasznalo torlese" << std::endl;
             std::cout << "x: Kilepes \n";
             break;
         }
@@ -393,19 +394,19 @@ int main()
                     int defaultType = 0;
 
                     //linet kéne olvasnia nem csak stringet
-                    std::string fullName, pw, szuldat, cime, asd;
+                    std::string fullName, pw, szuldat, cime;
                     std::cout << "On meg nincs regisztralva,regisztraljon be most.\n";
                     std::cout << "Teljes neve:\n";
-                    std::cin >> fullName >> asd;
-                    fullName += " " + asd;
-
+                    std::cin.ignore();
+                    std::getline(std::cin, fullName);           
                     std::cout <<"Jelszava:\n";
                     std::cin >> pw;
                     std::cout << "Szuletesidatum (ev.ho.nap formatum)\n";
                     std::cin >> szuldat;
+                    
                     std::cout << "Cim varos, utca, hazszam\n";
-                    std::cin >> cime;
-                                      
+                    std::cin.ignore();
+                    std::getline(std::cin,cime);                    
                     db.addUser(fullName, szuldat, cime, pw, defaultType);
                     std::string kod = db.getCodeFromArray(fullName, szuldat);
                     if (kod != "Hiba") {
@@ -418,11 +419,12 @@ int main()
                     }
                     
                 }
-                std::cout << "~~~~~A rendeles elkuldve~~~~~" << std::endl;
+                std::cout << "~~~~~A rendeles elkuldve~~~~~" << std::endl;               
                 Delivery D(currentUser.getCodeOfUser(),currentUser.getAddress(),megye,A.setOrder());
                 db.addDelivery(D);
+                std::cout << "Megrendelesi azonositoja: " << D.getDeliveryCode() << "\n";
                 //(std::string _deliveryCode, std::string _buyerCode, std::string _deliveryAddress, std::string _megye, std::string _order
-                db.listDeliveriesByMegye("Veszprem");
+                
  
             break;
             }
@@ -533,13 +535,16 @@ int main()
                 std::string newAddress;
                 std::string newPassword;
                 int newType;
-
-                std::cout << "Adja meg a teljes nevet: \n";
-                std::cin >> newFullName;
+                
+                
+                std::cout << "Adja meg a teljes nevet: \n";               
+                std::cin.ignore();
+                getline(cin, newFullName);                
                 std::cout << "Adja meg a szuletesi evet: \n";
                 std::cin >> newDateOfBirth;
                 std::cout << "Adja meg a lakcimet: \n";
-                std::cin >> newAddress;
+                std::cin.ignore();
+                getline(cin, newAddress);
                 std::cout << "Adja meg a jelszot: \n";
                 std::cin >> newPassword;
                 std::cout << "Adja meg a felhasznalo tipusat: \n";
@@ -562,7 +567,7 @@ int main()
             }
 
             //Felhasználó törlése
-            case '10': {
+            case 'y': {
 
             if (currentUser.checkType() >= 2) {
 
@@ -581,7 +586,43 @@ int main()
             //Rendeles listazas
             case '5' :
             {
-            
+                if (currentUser.checkType() == 0)
+                {
+                    std::string code;
+                    std::cout << "Adja meg a rendelesi kodjat:";
+                    std::cin >> code;
+                    std::cout << "~~~~ Az On rendelese ~~~~~\n";
+                    db.listDeliveriesByCode(code);
+                    std::cout << "~~~~~~~~~~~~~~~~~~~~~~\n";
+                    break;
+                        
+                }
+                else
+                {
+                    std::string search, _input;
+                   
+                    while (search != "megye" || search != "azonosito")
+                    {
+                        std::cout << "Mi alapjan szeretne keresni? megye / azonosito\n";
+                        std::cin >> search;
+                        if (search == "megye")
+                        {
+                            std::cout << "Adja meg a megyet!\n";
+                            std::cin >> _input;
+                            db.listDeliveriesByMegye(_input);
+                            break;
+                        }
+                        else if (search == "azonosito")
+                        {
+                           std::cout << "Adja meg az azonositot!\n";
+                           std::cin >> _input;
+                           db.listDeliveriesByCode(_input);       
+                           break;
+                        }
+                    }
+
+
+                }
             
             }
             break;
