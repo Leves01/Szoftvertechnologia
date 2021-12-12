@@ -229,7 +229,7 @@ void Database::listDeliveriesByCode(std::string searchCode) const
 	for (const auto& delivery : deliveryArray)
 	{
 		if (delivery.getDeliveryCode() == searchCode) {
-			std::cout << delivery.getDeliveryCode() << " ; " << delivery.getBuyer() << " ; " << delivery.getDeliveryAddress() << " ; " << delivery.getmegye() << " ; " << delivery.getOrder() << std::endl;
+			std::cout<<" Megrendelesi azonosito:" << delivery.getDeliveryCode() << " Vevo azonositoja: " << delivery.getBuyer() << " Cim: " << delivery.getDeliveryAddress() << " Megye " << delivery.getmegye() << " Rendelt termekek: " << delivery.getOrder() << std::endl;
 		}
 	}
 }
@@ -239,7 +239,7 @@ void Database::listDeliveriesByMegye(std::string megye) const
 	for (const auto& delivery : deliveryArray)
 	{
 		if (delivery.getmegye() == megye) {
-			std::cout << delivery.getDeliveryCode() << " ; " << delivery.getBuyer() << " ; " << delivery.getDeliveryAddress() << " ; " << delivery.getmegye() << " ; " << delivery.getOrder() << std::endl;
+			std::cout << " Megrendelesi azonosito:" << delivery.getDeliveryCode() << " Vevo azonositoja: " << delivery.getBuyer() << " Cim: " << delivery.getDeliveryAddress() << " Megye " << delivery.getmegye() << " Rendelt termekek: " << delivery.getOrder() << std::endl;
 		}
 		
 	}
@@ -281,4 +281,15 @@ void Database::addDelivery(Delivery& D)
 {
 	Database::deliveryArray.push_back(D);
 	
+}
+
+void Database::saveDeliveries() const
+{
+
+	std::ofstream file("deliveries.txt");
+	for (const auto& delivery : deliveryArray)
+	{
+		file << delivery.getDeliveryCode() << " ; " << delivery.getBuyer() << " ; " << delivery.getDeliveryAddress() << " ; " << delivery.getmegye() << " ; " << delivery.getOrder() << " ;\n ";
+	}
+
 }

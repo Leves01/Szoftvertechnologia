@@ -20,6 +20,7 @@ public:
 	std::string getmegye()const;
 	std::string getBuyer()const;
 	std::string getOrder()const;
+	void setDeliveryCode(std::string _code);
 
 
 };

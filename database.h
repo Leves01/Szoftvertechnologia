@@ -49,6 +49,7 @@ class Database{
 		bool searchForProduct(std::string _productName) const;
 		std::string getCodeFromArray(std::string searchName, std::string dateOB);
 		void addDelivery(Delivery& D);
+		void saveDeliveries()const;
 };
 
 #endif // !__DATABASE_H__

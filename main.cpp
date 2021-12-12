@@ -148,6 +148,62 @@ void readProducts(Database &B)
     }
 }
 
+void readDeliveries(Database &B)
+{
+    std::ifstream file;
+    file.open("deliveries.txt");
+    if (!file.is_open()) std::cout << "Users.txt nem toltott be";
+    int tag = 0;
+    std::string dC, uC, A="s", M, T="s", word;
+        //gw9fyj83 ; 01bt ; Cseteny faluvege xd ; Veszprem ;  Cserep Tegla Lo ;
+    while (file >> word)
+    {
+        if (word == ";") {
+            tag++;
+        }
+        else if (tag == 0)
+        {
+            dC = word;
+        }
+        else if (tag == 1)
+        {
+            uC = word;
+        }
+        else if (tag == 2)
+        {
+            
+            if (A == "s")
+                A = word;
+            else
+                A += " " + word;
+        }
+        else if (tag == 3)
+        {
+            M = word;
+        }
+        else if (tag == 4)
+        {
+            
+            if (T == "s")
+                T = word;
+            else
+                T += " " + word;     
+        }
+        if (tag == 5)
+        {
+            Delivery _d(uC,A,M,T);
+            _d.setDeliveryCode(dC);
+            B.addDelivery(_d);
+            tag = 0;
+            A = "s";
+            T = "s";
+        }
+        //gw9fyj83 ; 01bt ; Cseteny faluvege xd ; Veszprem ;  Cserep Tegla Lo ;
+
+    }
+    //std::string _buyerCode, std::string _deliveryAddress, std::string _megye, std::string _order
+}
+
 
 
 //std::string name;0
@@ -169,6 +225,7 @@ int main()
     readUsers(db);
     //db.listAll();
 
+    readDeliveries(db);
     readProducts(db);
     //db.listProducts();
     //db.listProducts("Tegla");
@@ -191,6 +248,8 @@ int main()
     
     //fileWrite("proba.txt", "Tokeletesen mukodik.\nMasodik sor.\n");
     //fileRead("proba.txt");
+    db.listDeliveriesByMegye("Veszprem");
+   /* std::cout << "asd";*/
 
 
 
@@ -530,5 +589,6 @@ int main()
     //ide írd a fájlmentést vagy mit akarsz
     db.saveProducts();
     db.saveUsers();
+    db.saveDeliveries();
     return 0;
 }

@@ -48,3 +48,8 @@ std::string Delivery::getOrder() const
 	return order;
 }
 
+void Delivery::setDeliveryCode(std::string _code)
+{
+	deliveryCode = _code;
+}
+
