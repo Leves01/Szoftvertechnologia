@@ -229,17 +229,17 @@ void Database::listDeliveriesByCode(std::string searchCode) const
 	for (const auto& delivery : deliveryArray)
 	{
 		if (delivery.getDeliveryCode() == searchCode) {
-			std::cout << delivery.getDeliveryAddress() << " " << delivery.getDeliveryCode() << std::endl;
+			std::cout << delivery.getDeliveryCode() << " ; " << delivery.getBuyer() << " ; " << delivery.getDeliveryAddress() << " ; " << delivery.getmegye() << " ; " << delivery.getOrder() << std::endl;
 		}
 	}
 }
-
-void Database::listDeliveriesByCountry(std::string searchAddress) const
+// //(std::string _deliveryCode, std::string _buyerCode, std::string _deliveryAddress, std::string _megye, std::string _order
+void Database::listDeliveriesByMegye(std::string megye) const
 {
 	for (const auto& delivery : deliveryArray)
 	{
-		if (delivery.getDeliveryAddress() == searchAddress) {
-			std::cout << delivery.getDeliveryAddress() << " " << delivery.getDeliveryCode() << std::endl;
+		if (delivery.getmegye() == megye) {
+			std::cout << delivery.getDeliveryCode() << " ; " << delivery.getBuyer() << " ; " << delivery.getDeliveryAddress() << " ; " << delivery.getmegye() << " ; " << delivery.getOrder() << std::endl;
 		}
 		
 	}
@@ -275,4 +275,10 @@ std::string Database::getCodeFromArray(std::string searchName, std::string dateO
 
 	return "Hiba";
 
+}
+
+void Database::addDelivery(Delivery& D) 
+{
+	Database::deliveryArray.push_back(D);
+	
 }

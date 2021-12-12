@@ -356,6 +356,11 @@ int main()
                     }
                     
                 }
+                std::cout << "~~~~~A rendeles elkuldve~~~~~" << std::endl;
+                Delivery D(currentUser.getCodeOfUser(),currentUser.getAddress(),megye,A.setOrder());
+                db.addDelivery(D);
+                //(std::string _deliveryCode, std::string _buyerCode, std::string _deliveryAddress, std::string _megye, std::string _order
+                db.listDeliveriesByMegye("Veszprem");
  
             break;
             }

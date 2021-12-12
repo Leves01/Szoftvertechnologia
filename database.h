@@ -39,7 +39,7 @@ class Database{
 		void listProductsInfo() const;
 		void listProducts(std::string _type) const;
 		void listDeliveriesByCode(std::string searchCode) const;
-		void listDeliveriesByCountry(std::string searchAddress) const;
+		void listDeliveriesByMegye(std::string megye) const;
 
 		//Egyéb
 		void loadUsers(User &_user);
@@ -48,6 +48,7 @@ class Database{
 		int productArraySize() const;
 		bool searchForProduct(std::string _productName) const;
 		std::string getCodeFromArray(std::string searchName, std::string dateOB);
+		void addDelivery(Delivery& D);
 };
 
 #endif // !__DATABASE_H__
