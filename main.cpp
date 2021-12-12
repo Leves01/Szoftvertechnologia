@@ -248,7 +248,7 @@ int main()
     
     //fileWrite("proba.txt", "Tokeletesen mukodik.\nMasodik sor.\n");
     //fileRead("proba.txt");
-    db.listDeliveriesByMegye("Veszprem");
+    //db.listDeliveriesByMegye("Veszprem");
    /* std::cout << "asd";*/
 
 
@@ -263,8 +263,9 @@ int main()
             std::cout << "2: Kijelentkezes" << std::endl;
             std::cout << "3: Termekek kilistazasa" << std::endl;
             std::cout << "4: Termek rendelese" << std::endl;
-            std::cout << "5: Termek hozzáadasa" << std::endl;
-            std::cout << "6: Termek torlese" << std::endl;
+            std::cout << "5: Rendeles megtekintese" << std::endl;
+            std::cout << "6: Termek hozzáadasa" << std::endl;
+            std::cout << "7: Termek torlese" << std::endl;
             std::cout << "x Kilepes \n" << std::endl;
             break;
         }
@@ -275,11 +276,12 @@ int main()
             std::cout << "2: Kijelentkezes" << std::endl;
             std::cout << "3: Termekek kilistazasa" << std::endl;
             std::cout << "4: Termek rendelese" << std::endl;
-            std::cout << "5: Termek hozzaadasa" << std::endl;
-            std::cout << "6: Termek torlese" << std::endl;
-            std::cout << "7: Felhasznalok kilistazasa" << std::endl;
-            std::cout << "8: Felhasznalo hozzaadasa" << std::endl;
-            std::cout << "9: Felhasznalo torlese" << std::endl;
+            std::cout << "5: Rendeles megtekintese" << std::endl;
+            std::cout << "6: Termek hozzaadasa" << std::endl;
+            std::cout << "7: Termek torlese" << std::endl;
+            std::cout << "8: Felhasznalok kilistazasa" << std::endl;
+            std::cout << "9: Felhasznalo hozzaadasa" << std::endl;
+            std::cout << "10: Felhasznalo torlese" << std::endl;
             std::cout << "x: Kilepes \n";
             break;
         }
@@ -289,6 +291,7 @@ int main()
             std::cout << "2: Kijelentkezes" << std::endl;
             std::cout << "3: Termekek kilistazasa" << std::endl;
             std::cout << "4: Termek rendelese" << std::endl;
+            std::cout << "5: Rendeles megtekintese" << std::endl;
             std::cout << "x: Kilepes \n";
             break;
         }
@@ -425,7 +428,7 @@ int main()
             }
 
             //Termék hozzáadása
-            case '5': {
+            case '6': {
 
             if (currentUser.checkType() >= 1) {
 
@@ -452,7 +455,7 @@ int main()
             }
 
             //Termék törlése
-            case '6': {
+            case '7': {
 
             if (currentUser.checkType() >= 1) {
 
@@ -472,7 +475,7 @@ int main()
             }
 
             //Felhasználók kilistázása
-            case '7': {
+            case '8': {
 
             if (currentUser.checkType() >= 2) {
 
@@ -521,7 +524,7 @@ int main()
             }
 
             //Felhasználó hozzáadása
-            case '8': {
+            case '9': {
 
             if (currentUser.checkType() >= 2) {
 
@@ -559,7 +562,7 @@ int main()
             }
 
             //Felhasználó törlése
-            case '9': {
+            case '10': {
 
             if (currentUser.checkType() >= 2) {
 
@@ -575,6 +578,14 @@ int main()
             }
             break;
             }
+            //Rendeles listazas
+            case '5' :
+            {
+            
+            
+            }
+            break;
+                    
 
         default:
             std::cout << "~~Helytelen karaktert adott meg~~" << std::endl;
