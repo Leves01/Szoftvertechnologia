@@ -1,0 +1,140 @@
+@startuml Class_meghatarozas
+'Classok a programon belül
+
+abstract class User {
+    #fullName : string
+    #dateOfBirth : string
+    #address : string
+    #password : string
+    #codeOfUser : string
+    #typeOfUser : int
+    +User(fullName, dateOfBirth, address, password, codeOfUser, typeOfUser)
+    +getCodeOfUser() : string
+    +getFullName() : string
+    +getDateOfBirth() : string
+    +getAddress() : string
+    +getPassword() : string
+    +getType() : int
+    +setFullName(newFullName) : void
+    +setDateOfBirth(newDateOfBirth) : void
+    +setAddress(newAddress) : void
+    +setPassword(newPassword) : void
+    +setCodeOfUser(newCodeOfUser) : void
+    +checkType() : int
+    +setType(typeOf) : void
+}
+
+class Buyer {
+    -userId : string
+    -orderCode : string
+    -myBasket : list<string>
+    +Buyer()
+    +getOderCode() : string
+    +addToBasket(ProductId) : void
+    +removeFromBasket(ProductId) :void
+    +listMyBasket() : void
+    +setOrder() : string
+}
+
+class Product {
+    -name : string
+    -sector : int
+    -shelf : int
+    -row : int
+    -id : string
+    +Product()
+    +Product(name,sector,shelf,row,id)
+    +getName() : string
+    +getSector() : int
+    +getShelf() : int
+    +getRow() : int 
+    +getId() : string
+    +setName(newName) : void
+    +setSector(newSector) : void
+    +setRow(newRow) : void
+    +setId(newId) : void
+}
+class Delivery {
+    -deliveryAddress : string
+    -deliveryCode : string
+    -buyerCode : string
+    -order : string
+    -megye : string
+    +Delivery(_buyerCode, _deliveryAddress, _megye, _order)
+    +setDeliveryAddress(newAddress) : void
+    +generateDeliveryCode : void
+    +getDeliveryAddress() : string
+    +getDeliveryCode() : string
+    +getMegye() : string
+    +getBuyer() : string
+    +getOrder() : string
+    +setDeliveryCode() : void
+}
+
+class CodeGenerator {
+    -alphaNums : char
+    -code : string
+    +generateCode(lenght) : string
+}
+
+class Database {
+    -usersArray : list<User>
+    -productArray : list<Product>
+    -deliveryArray : list<Delivery>
+    +Database()
+    +addUser(newFullName,newDateOfBirth,newAddress,newPassword,newType) : void
+    +deleteUser(codeToBeDeleted) : void
+    +listAll() : void
+    +listWorkers() : void
+    +listBuyers() : void
+    +saveProducts() : void
+    +addProduct(newName,newSector,newShelf,newRow) : void
+    +deleteProduct(id) : void
+    +login(username, password, currentUser) : void
+    +listProducts() : void
+    +listProductsInfo() : void
+    +listProducts(_type) : void
+    +listDeliveriesByCode(searchCode) : void
+    +listDeliveriesByMegye(megye) : void
+    +loadUsers(_user) : void
+    +loadProduct(_product) : void
+    +saveUsers() : void
+    +productArraySize() : int
+    +searchForProduct(_productName) : bool
+    +getCodeFromArray(searchName, dateOB) : string
+    +addDelivery(D) : void
+    +saveDeliveries() : void
+}
+
+class Main {
+    +fileWrite(filename, text) : void
+    +fileRead(filename) : void
+    +readUsers(&B) : void
+    +readProducts(&B) : void
+    +readDeliveries(&B) : void
+    -db : Database
+    -chosenChar : char
+    -defaultUser : User
+    -currentUser : User
+}
+' Kapcsolodasok a classok kozott
+
+User <|-- Buyer
+
+Database *-- Product
+Database *-- User
+Database -- Buyer
+Database *-- Delivery
+Database -- CodeGenerator
+
+Product -- Buyer
+
+Buyer -- Delivery
+
+Main -- User
+Main -- Database
+Main -- Buyer
+
+Delivery -- CodeGenerator
+
+@enduml
