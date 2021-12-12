@@ -341,6 +341,7 @@ int main()
 
                 std::cout << "~~Lista vege~~\n"; 
                 std::cout << "\n";
+
             break;
             }
 
@@ -573,7 +574,7 @@ int main()
 
                 std::string codeWantDeleted;
 
-                std::cout << "Kerem adja meg a kitorlendõ kodot: \n";
+                std::cout << "Kerem adja meg a kitorlendo kodot: \n";
                 std::cin >> codeWantDeleted;
 
                 db.deleteUser(codeWantDeleted);
