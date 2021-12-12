@@ -30,72 +30,84 @@ void readUsers(Database &B)
     file.open("users.txt");
     if (!file.is_open()) std::cout << "Users.txt nem toltott be";
 
-    std::string line, word, vezetek, kereszt, szul, cimxd=".", pw,kode;
+    std::string line, word, teljesnev="s", szul, cimxd = "s", pw, kode;
     int clap=0;
     
     //while(std::getline(file,line))
     //{
-    //Boros Doni ; 2002.02.02 ; ZirC Korhaz mellett 3 ; csgoislife ; ak47 ; 0
+    //Asd1 Jozsi Harom ; 1993.11.01 ; Kolozsvar Tulipan negyed R/1 ; szeretemakakaot ; 21er ; 0
         int tag = 0;
         while (file >> word)
         { 
-            
-            
             if (word == ";")
+            {
                 tag++;
-            else if (tag == 0) {
-                vezetek = word;
-                tag++;
+            }
+            else if (tag == 0)
+            {
+                if (teljesnev == "s")
+                {
+                    teljesnev = word;
+                }
+                else
+                {
+                    teljesnev += " " + word;
+
+                }
+
             }
             else if (tag == 1)
             {
-                kereszt = word;
-                tag++;
+                szul = word;
+                
+
+            }
+            else if (tag == 2)
+            {
+                if (cimxd == "s")
+                {
+                    cimxd = word;
+                }
+                else
+                {
+                    cimxd += " " + word;
+                }
             }
             else if (tag == 3)
             {
-                szul = word;
-                tag++;
-            }
-            else if(tag == 5)
-            {
-                if (cimxd == ".")
-                    cimxd = word;
-                
-                else
-                {
-                    cimxd+= " " + word;
-                    
-
-                }
-            }
-            else if (tag == 6)
-            {
                 pw = word;
-                tag++;
             }
-            else if (tag == 8)
+            else if (tag == 4)
             {
                 kode = word;
-                tag++;
-                
             }
-            else if (tag == 10)
+            else if (tag == 5)
             {
                 clap = stoi(word);
-                std::string teljesnev = vezetek + " " + kereszt;
                 User A(teljesnev, szul, cimxd, pw, kode, clap);
                 B.loadUsers(A);
-                cimxd = ".";
+                cimxd = "s";
+                teljesnev = "s";
                 tag = 0;
-                
+
             }
+
+           
+            
+
+                
+            
 
 
 
 
         }
-
+        //clap = stoi(word);
+        //std::string teljesnev = vezetek + " " + kereszt;
+        //User A(teljesnev, szul, cimxd, pw, kode, clap);
+        //B.loadUsers(A);
+        //cimxd = ".";
+        //tag = 0;
         
     
 }
